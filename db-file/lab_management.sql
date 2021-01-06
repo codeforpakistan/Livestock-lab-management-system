@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 01:18 PM
+-- Generation Time: Jan 06, 2021 at 09:50 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -42,7 +42,14 @@ CREATE TABLE `acid_fast_staining` (
 --
 
 INSERT INTO `acid_fast_staining` (`afs_id`, `testDetails_id`, `afs_lab_findings`, `afs_remarks`, `parity`, `daily_milk_production`) VALUES
-(1, 10, NULL, '', 'this is testing entr', 'this is testing entr');
+(1, 10, 'positive', 'TB found Positive on the basis of AFB Staining Test.', 'this is testing entr', 'this is testing entr'),
+(2, 11, 'positive', ' ', '0', '5'),
+(3, 12, 'positive', ' Remarks Here', '1', '5'),
+(4, 13, 'positive', 'Treatment started of TB.', 'Nil', '3'),
+(5, 27, 'positive', ' TB found Positive', '1', '2'),
+(6, 47, 'positive', ' TB found Positive', '0', '8'),
+(7, 53, 'positive', ' TB found in the sample.', '5', '5'),
+(8, 54, 'positive', ' TB found in the sample.', '3', '5');
 
 -- --------------------------------------------------------
 
@@ -103,7 +110,18 @@ INSERT INTO `breeds` (`breed_id`, `cattle_id`, `breed_name`, `is_trash`, `create
 (23, 4, 'Teddy', 0, 2, '2020-10-11 22:19:19'),
 (24, 4, 'Local', 0, 2, '2020-10-11 22:19:31'),
 (25, 3, 'Al Session', 0, 2, '2020-10-20 03:46:49'),
-(26, 9, 'Others', 0, 2, '2020-12-07 16:43:51');
+(26, 9, 'Common Mouse', 0, 2, '2020-12-04 11:01:30'),
+(27, 9, 'Laboratory Mouse', 0, 2, '2020-12-04 11:02:05'),
+(28, 6, 'Black & White Rabbit', 0, 2, '2020-12-04 11:44:09'),
+(29, 6, 'White Rabbit', 0, 2, '2020-12-04 11:44:36'),
+(30, 6, 'Black Rabbit', 0, 2, '2020-12-04 11:45:22'),
+(31, 6, 'Brown Rabbit', 0, 2, '2020-12-04 11:45:35'),
+(32, 6, 'White Bay Rabbit', 0, 2, '2020-12-04 11:45:56'),
+(33, 6, 'Bay Rabbit', 0, 2, '2020-12-04 11:46:15'),
+(34, 7, 'Desert Camel', 0, 2, '2020-12-04 13:57:40'),
+(35, 7, 'Beach Camel', 0, 2, '2020-12-04 13:58:13'),
+(36, 7, 'Hill Camel', 0, 2, '2020-12-04 13:58:37'),
+(37, 7, 'Racing Camel', 0, 2, '2020-12-04 13:58:56');
 
 -- --------------------------------------------------------
 
@@ -183,26 +201,26 @@ CREATE TABLE `center_station` (
 --
 
 INSERT INTO `center_station` (`center_station_id`, `district_id`, `directorate_id`, `center_station_name`, `center_station_phone`, `center_station_fax`, `center_station_email`, `center_station_website`, `center_station_address`, `created_by`, `created_date`, `is_trash`) VALUES
-(1, 3, 2, 'CAN, LR&D Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'VRI, Bacha Khan Chowk, Peshawar    ', 2, '2020-07-21 08:54:24', 0),
-(2, 3, 2, 'Center of VRI', '3333-333333', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', '  ', 2, '2020-07-21 08:58:49', 1),
-(3, 3, 3, 'CBP, VRI Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'VRI, Bacha Khan Chowk, Peshawar', 2, '2020-07-23 16:41:54', 0),
-(4, 3, 3, 'CMB, VRI Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' VRI, Bacha Khan Chowk, Peshawar ', 2, '2020-08-06 15:54:59', 0),
-(5, 3, 3, 'CPP, VRI Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'VRI, Bacha Khan Chowk, Peshawar', 2, '2020-09-24 12:18:52', 0),
+(1, 3, 2, 'Center of Animal Nutrition - DLR&D ', '091-9213161', '091-9210639', 'procan.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Bacha Khan Chowk, Peshawar     ', 2, '2020-07-21 08:54:24', 0),
+(2, 3, 2, 'Center of VRI', '3333-333333', '3333-333333', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', '  ', 2, '2020-07-21 08:58:49', 1),
+(3, 3, 3, 'CBP - Veterinary Research Institute', '091-9210218', '091-9210220', 'procbp.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', ' Bacha Khan Chowk, Peshawar ', 2, '2020-07-23 16:41:54', 0),
+(4, 3, 3, 'CMB - Veterinary Research Institute', '091-9210218', '091-9210220', 'procmb.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Bacha Khan Chowk, Peshawar  ', 2, '2020-08-06 15:54:59', 0),
+(5, 3, 3, 'CPP - Veterinary Research Institute', '091-9210218', '	091-9210220', 'procpp.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Bacha Khan Chowk, Peshawar ', 2, '2020-09-24 12:18:52', 0),
 (6, 3, 3, 'FMDVRC, VRI Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' VRI, Bacha Khan Chowk, Peshawar ', 2, '2020-10-01 03:45:01', 0),
-(7, 7, 3, 'VR&DIC, Abbattabad', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' Misile Chowk, Mandian, Abbottabad ', 2, '2020-10-01 03:47:18', 0),
-(8, 4, 3, 'VR&DIC Swat', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Balogram, Swat', 2, '2020-10-01 03:48:44', 0),
-(9, 1, 3, 'VR&DIC, Kohat', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' Railway Patak, Hangu Chowk, Kohat ', 2, '2020-10-01 03:50:04', 0),
-(10, 5, 3, 'VR&DIC, Dera Ismail Khan', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' Dera Ismail Khan ', 2, '2020-10-01 03:52:25', 0),
-(11, 18, 3, 'VR&DIC Chitral', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Chitral', 2, '2020-10-01 04:02:29', 0),
-(12, 3, 2, 'LR&DS Surezai, Peshawar', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' Surezai, Peshawar ', 2, '2020-10-01 04:03:22', 0),
-(13, 5, 2, 'LR&DS Paharpur, Dera Ismail Khan', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', ' Paharpur, Dera Ismail Khan ', 2, '2020-10-01 04:04:40', 0),
-(14, 1, 2, 'AZSRRI Ghulam Banda Kohat', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Ghulam Banda, Kohat', 2, '2020-10-01 04:06:03', 0),
-(15, 9, 2, 'LR&DS Dir Lower', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Hanifa, Dir Lower', 2, '2020-10-01 04:06:45', 0),
-(16, 11, 2, 'PRI Jabba Mansehra', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Jabba, Mansehra', 2, '2020-10-01 04:07:32', 0),
-(17, 4, 2, 'GPRS Charbagh Swat', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Charbagh, Swat', 2, '2020-10-01 04:08:08', 0),
-(18, 2, 2, 'LR&DS Swabi', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Swabi', 2, '2020-10-01 04:08:35', 0),
-(19, 3, 4, 'Information Technology Cell', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Information Technology Cell', 2, '2020-10-05 23:06:37', 0),
-(20, 3, 4, 'Veterinary Research Institute Bacha Khan Chowk Peshawar ', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/', ' Bacha Khan Chowk, Peshawar ', 2, '2020-11-20 11:01:58', 0);
+(7, 7, 3, 'Veterinary Research & Disease Investigation Center Abbattabad', '0992-383763', '0992-383763', 'rdabbottabad.lddr@kp.gov.', 'http://livestockres.kp.gov.pk', '  Misile Chowk, Mandian, Abbottabad  ', 2, '2020-10-01 03:47:18', 0),
+(8, 4, 3, 'Veterinary Research & Disease Investigation Center Swat', '0946-9240259', '0946-9240259', 'rdswat.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Kalam Bypass Road, Balogram Chowk, Swat', 2, '2020-10-01 03:48:44', 0),
+(9, 1, 3, 'Veterinary Research & Disease Investigation Center Kohat', '0922-9260225', 'Nil', 'rdkohat.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', '  Railway Patak, Hangu Chowk, Kohat  ', 2, '2020-10-01 03:50:04', 0),
+(10, 5, 3, 'Veterinary Research & Disease Investigation Center DI Khan', '0966-740205', '0966-740205', 'rddik.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Ratta Kulachi, Bannu Road near Wild Life Park, Dera Ismail Khan  ', 2, '2020-10-01 03:52:25', 0),
+(11, 18, 3, 'Veterinary Research & Disease Investigation Center Chitral', '0943-412492', '0943-412492', 'rdchitral.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Gahtak Road, Danin, Chitral ', 2, '2020-10-01 04:02:29', 0),
+(12, 3, 2, 'Livestock Research & Development Station Surezai', '091-5510384', 'Nil', 'sdsurezai.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Surezai, Peshawar  ', 2, '2020-10-01 04:03:22', 0),
+(13, 5, 2, 'Livestock Research & Development Station Paharpur', '0331-4521830', 'Nil', 'sdpaharpur.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', '  Paharpur, Dera Ismail Khan  ', 2, '2020-10-01 04:04:40', 0),
+(14, 1, 2, 'Arid Zone Small Ruminants Research Institute', '0333-9206812', 'Nil', 'sdazsrri.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Ghulam Banda, Kohat ', 2, '2020-10-01 04:06:03', 0),
+(15, 9, 2, 'Livestock Research & Development Station Dir Lower', '0945-835801', 'Nil', 'sddir.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', ' Hanifa, Dir Lower ', 2, '2020-10-01 04:06:45', 0),
+(16, 11, 2, 'Poultry Research Institute', '0997-410028', 'Nil', 'dpri.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Jabba, Mansehra ', 2, '2020-10-01 04:07:32', 0),
+(17, 4, 2, 'Goat Production Research Station', '0333-9352339', 'Nil', 'sdcharbagh.lddr@gmail.com', 'http://livestockres.kp.gov.pk', '  Charbagh, Swat  ', 2, '2020-10-01 04:08:08', 0),
+(18, 2, 2, 'Livestock Research & Development Station Swabi', '0314-2460540', 'Nil', 'sdswabi.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Gulu Dherai, Bam Khel, Swabi', 2, '2020-10-01 04:08:35', 0),
+(19, 3, 4, 'Information Technology Cell', '0919-210218', '0919-210218', 'test@gmail.com', 'http://lims.kpdata.gov.pk/	', 'Information Technology Cell ', 2, '2020-10-05 23:06:37', 0),
+(20, 3, 4, 'Veterinary Research Institute', '091-9210218', '091-9210220', 'dvri.lddr@kp.gov.pk', 'http://livestockres.kp.gov.pk', 'Bacha Khan Chowk, Peshawar    ', 2, '2020-11-20 11:01:58', 0);
 
 -- --------------------------------------------------------
 
@@ -242,7 +260,7 @@ INSERT INTO `client_info` (`client_id`, `client_name`, `dept_name`, `client_cont
 (7, 'asdf', NULL, 'sadf', NULL, 'sdf', 'sadf', 0, 0, NULL, '', '2020-08-06 13:41:09', '2020-08-06 13:41:09', 2, 'farmer'),
 (8, 'Usman khan', '', '03119047946', '', 'Peshawar', '162027352175', 0, 0, NULL, '', '2020-08-26 01:52:39', '2020-08-26 01:52:39', 5, 'farmer'),
 (9, 'Mr Jawad', '', '0311-1111111', '', 'Village Telaband Peshawar', '11111-1111111-1', 3, 6, 'Telaband', NULL, '2020-09-24 03:22:35', '2020-09-24 03:22:35', 2, 'farmer'),
-(10, 'Tariq Ali', '', '0312-2222222', '', 'Surezai, Peshawar', '22222-2222222-2', 3, 7, 'Telaband, Surezai', NULL, '2020-09-25 06:06:20', '2020-09-25 06:06:20', 2, 'farmer'),
+(10, 'Tariq ali', '', '0312-2222222', '', 'Surezai, Peshawar', '22222-2222222-2', 3, 6, 'Telaband, Surezai', NULL, '2020-09-25 06:06:20', '2020-09-25 06:06:20', 2, 'Patient'),
 (11, 'Mr John', '', '0322-2222222', '', 'Peshawar', '31023-3333333-3', 3, 5, NULL, '', '2020-09-29 07:25:03', '2020-09-29 07:25:03', 7, 'farmer'),
 (12, 'Ms. Sara Lyani', 'AZSRRI Ghulam Banda, Kohat', '0315-6666666', '0000-000000', 'Ghulam Banda Kohat', '44444-4444444-4', 1, 0, 'Ghulam Banda', '', '2020-09-29 17:19:46', '2020-09-29 17:19:46', 9, 'other_dept'),
 (13, 'Anwar saeed', '', '0311-0000000', '', 'Gul Bahar, Peshawar City.', '33333-3333333-3', 3, 6, 'Gul Bahar, Peshawar City.', NULL, '2020-10-02 07:16:53', '2020-10-02 07:16:53', 2, 'farmer'),
@@ -259,7 +277,7 @@ INSERT INTO `client_info` (`client_id`, `client_name`, `dept_name`, `client_cont
 (24, 'Janas khan', '', '0000-0000000', '', 'charssada', '00000-0000000-7', 26, 73, 'charsadda', NULL, '2020-10-13 05:11:40', '2020-10-13 05:11:40', 7, 'farmer'),
 (25, 'Abdul latif ', '', '0000-0000000', '', 'nasar pur', '00000-0000000-8', 3, 5, 'nasar pur', NULL, '2020-10-13 06:22:11', '2020-10-13 06:22:11', 7, 'farmer'),
 (26, 'Azeem khan', '', '0000-0000000', '', 'phando road', '00000-0000000-9', 3, 7, 'phando road', NULL, '2020-10-13 06:29:49', '2020-10-13 06:29:49', 7, 'farmer'),
-(27, 'Mumtaz khan', '', '0000-0000000', '', 'Asia gate', '00000-0000000-0', 3, 4, 'Asia gate', NULL, '2020-10-13 06:43:49', '2020-10-13 06:43:49', 7, 'farmer'),
+(27, 'Mumtaz Khan', '', '0000-0000000', '', 'Sarkai', '00000-0000000-0', 3, 4, 'Dabgari Garden', NULL, '2020-10-13 06:43:49', '2020-10-13 06:43:49', 8, 'farm_visited'),
 (28, 'Yasin', '', '0000-0000000', '', 'sarband bara', '00000-0000000-6', 3, 6, 'sarband', NULL, '2020-10-13 06:55:15', '2020-10-13 06:55:15', 7, 'farmer'),
 (29, 'Zahir khan', '', '0000-0000000', '', 'shabqadar', '30000-0000000-0', 26, 74, 'shabqadar', NULL, '2020-10-13 12:39:55', '2020-10-13 12:39:55', 7, 'farmer'),
 (30, 'Falaq niaz ', '', '0000-0000000', '', 'Wadpaga', '00000-0000001-1', 3, 79, 'Wadpaga', NULL, '2020-10-16 10:47:15', '2020-10-16 10:47:15', 9, 'farmer'),
@@ -321,7 +339,56 @@ INSERT INTO `client_info` (`client_id`, `client_name`, `dept_name`, `client_cont
 (86, 'Fayaz khan', '', '0000-0000000', '', 'mohmand', '83000-0000000-0', 29, 84, 'muhmand', NULL, '2020-10-27 09:09:32', '2020-10-27 09:09:32', 7, 'farmer'),
 (87, 'Waris khan', '', '0000-0000000', '', 'mattani', '84000-0000000-0', 3, 7, 'mattani', NULL, '2020-10-27 09:30:58', '2020-10-27 09:30:58', 7, 'farmer'),
 (88, 'Muslim khan', '', '0000-0000000', '', 'shabqadar', '85000-0000000-0', 26, 74, 'shabqadar', NULL, '2020-10-27 09:34:52', '2020-10-27 09:34:52', 7, 'farmer'),
-(89, 'Fayaz khan', '', '0000-0000000', '', 'charsadda', '86000-0000000-0', 26, 0, 'sardazy', NULL, '2020-10-27 09:38:06', '2020-10-27 09:38:06', 7, 'farmer');
+(89, 'Fayaz khan', '', '0000-0000000', '', 'charsadda', '86000-0000000-0', 26, 0, 'sardazy', NULL, '2020-10-27 09:38:06', '2020-10-27 09:38:06', 7, 'farmer'),
+(90, 'Tariq Ali', '', '0000-0000000', '', 'Telaband, Peshawar.', '01010-0000000-0', 3, 7, 'Telaband, Surezai', NULL, '2020-11-13 15:41:14', '2020-11-13 15:41:14', 7, 'farmer'),
+(91, 'Ali Khan ', '', '0000-0000000', '', 'Gul Bahar, Peshawar City.', '00123-0000000-0', 3, 4, 'Gul Bahar, Peshawar City.', NULL, '2020-11-16 07:59:51', '2020-11-16 07:59:51', 2, 'farmer'),
+(92, 'Wali Khan', '', '0000-0000000', '', 'Nothia Jadeed, Peshawar Cantt', '01010-1000000-0', 3, 4, 'Nothia Jadeed', NULL, '2020-11-17 09:12:25', '2020-11-17 09:12:25', 9, 'farmer'),
+(93, 'Mr Jawad', '', '0345-0000000', '', 'Charbagh', '02120-0000000-0', 4, 59, 'Charbagh Swat', NULL, '2020-11-17 09:30:38', '2020-11-17 09:30:38', 9, 'farmer'),
+(94, 'Akmal Jawad', '', '0000-0000000', '', 'Kulachi D.I. Khan', '12012-0120000-0', 5, 12, 'Kulachi', NULL, '2020-11-17 09:53:08', '2020-11-17 09:53:08', 9, 'farmer'),
+(95, 'Kamal Khan', '', '0000-0000000', '', 'Location: Takht Bhai Stop.', '01010-2000000-0', 6, 67, 'Village / UC Takht Bhai ', NULL, '2020-11-17 10:38:20', '2020-11-17 10:38:20', 9, 'farmer'),
+(96, 'Ahmad Khan', '', '0000-0000000', '', 'Location: Mian Essa', '12012-0000000-0', 26, 74, 'Village Shabqadar', NULL, '2020-11-17 10:49:12', '2020-11-17 10:49:12', 9, 'farmer'),
+(97, 'Zainab', '', '0000-0000000', '', 'Location: Parachinar', '01010-1022222-2', 22, 31, 'Village Parachinar', NULL, '2020-11-18 05:16:45', '2020-11-18 05:16:45', 2, 'Patient'),
+(98, 'Yaseen', '', '0000-0000000', '', 'Location: Charsadda', '10203-2000000-0', 26, 73, 'Village Charsadda', NULL, '2020-11-18 05:37:08', '2020-11-18 05:37:08', 2, 'Patient'),
+(99, 'Anwar Gul', '', '0000-0000000', '', 'Location: Bana Manrhi', '01314-5000000-0', 3, 79, 'Village Bana Marhi', NULL, '2020-11-18 06:03:14', '2020-11-18 06:03:14', 2, 'farmer'),
+(100, 'Aftab Khan', '', '0000-0000000', '', 'Gul Bahar, Peshawar City.', '10201-0000000-0', 3, 5, 'Gul Bahar, Peshawar City.', NULL, '2020-11-18 10:09:02', '2020-11-18 10:09:02', 2, 'farmer'),
+(101, 'Haider Ali ', '', '0000-0000000', '', 'Loc: Charsadda Road', '10110-1022000-0', 3, 79, 'Charsadda Road', NULL, '2020-11-18 10:23:56', '2020-11-18 10:23:56', 2, 'farmer'),
+(102, '', '', '', '', 'Telaband, Peshawar.', '11011-0020000-0', 0, 5, 'Telaband, Surezai', NULL, '2020-11-19 08:19:30', '2020-11-19 08:19:30', 2, 'farmer'),
+(103, '', '', '0000-0000000', '', 'Location Charsadda', '01230-4000000-0', 26, 73, 'Village Charsadda', NULL, '2020-11-19 09:44:18', '2020-11-19 09:44:18', 2, 'Patient'),
+(104, 'Hassan Khan', '', '0000-0000000', '', 'location telaband.', '00001-2350000-0', 3, 7, 'village telaband.', NULL, '2020-11-20 06:08:36', '2020-11-20 06:08:36', 8, 'farmer'),
+(105, 'Jawad Hussain', '', '0000-0000000', '', 'Gul Bahar, Peshawar City.', '01235-8000000-0', 3, 4, 'Gul Bahar, Peshawar City.', NULL, '2020-11-20 09:45:46', '2020-11-20 09:45:46', 7, 'farmer'),
+(106, 'Junaid Khan', '', '0000-0000000', '', 'Telaband, Peshawar.', '20145-6000000-0', 3, 7, 'Telaband, Surezai', NULL, '2020-11-20 10:37:51', '2020-11-20 10:37:51', 8, 'farmer'),
+(107, 'Tariq Jamal', '', '0000-0000000', '', 'Dir Upper', '01235-6450000-0', 8, 48, 'Dir', NULL, '2020-11-20 10:49:41', '2020-11-20 10:49:41', 8, 'farmer'),
+(108, 'Hassan Jan', '', '0000-0000000', '', 'Location: Babuzai Swat', '01216-3000000-0', 4, 56, 'Village: Babuzai Swat', NULL, '2020-11-20 10:56:53', '2020-11-20 10:56:53', 9, 'farmer'),
+(109, '', 'AZSRRI Ghulam Banda, Kohat', '', '091-2594862', '', '', 0, 0, '', NULL, '2020-11-20 11:04:29', '2020-11-20 11:04:29', 12, 'own_dept'),
+(110, 'Yaseen', '', '0000-0000000', '', 'Location: Kohat', '52684-0000000-0', 1, 36, 'Village Kohat', NULL, '2020-11-20 11:09:19', '2020-11-20 11:09:19', 9, 'farmer'),
+(111, 'Malik Rehman', '', '0000-0000000', '', 'Location Takht Bhai.', '12035-2000000-0', 6, 67, 'Village: Takht Bhai', NULL, '2020-11-23 07:00:59', '2020-11-23 07:00:59', 9, 'farmer'),
+(112, 'Rehmat Khan', '', '0000-0000000', '', 'Location Abbottabad', '12536-0000000-0', 7, 16, 'Village Abbottabad', NULL, '2020-11-23 07:17:03', '2020-11-23 07:17:03', 9, 'farmer'),
+(113, 'Zainab', '', '0000-0000000', '', 'Location Bara.', '12548-0000000-0', 28, 80, 'Village Bara.', NULL, '2020-11-23 08:29:47', '2020-11-23 08:29:47', 11, 'Patient'),
+(114, 'Haider Ali ', '', '0000-0000000', '', 'Location Charsadda Road.', '52648-0258000-0', 3, 79, 'Village Charsadda Road.', NULL, '2020-11-23 08:56:00', '2020-11-23 08:56:00', 11, 'farmer'),
+(115, 'Zahir', '', '0000-0000000', '', 'Location Peshawar', '25483-0580000-0', 3, 79, 'Village Peshawar', NULL, '2020-11-23 09:11:12', '2020-11-23 09:11:12', 11, 'farmer'),
+(116, 'Mumtaz Saima', '', '0000-0000000', '', 'Location Ekka Ghund', '12568-8015000-0', 29, 85, 'Village Ekka Ghund', NULL, '2020-11-23 09:48:20', '2020-11-23 09:48:20', 11, 'Patient'),
+(117, 'Major Arshad', '', '0000-0000000', '', '', '32580-0000000-0', 2, 1, '', NULL, '2020-11-23 10:20:54', '2020-11-23 10:20:54', 11, 'farmer'),
+(118, 'Nasreen Bibi', '', '0000-0000000', '', 'Location Timergara', '25136-0125800-0', 9, 47, 'Village Timergara', NULL, '2020-11-23 10:54:39', '2020-11-23 10:54:39', 11, 'Patient'),
+(119, 'Salman', '', '0000-0000000', '', 'Gul Bahar, Peshawar City.', '02153-6800000-0', 3, 4, 'Gul Bahar, Peshawar City.', NULL, '2020-11-23 11:26:23', '2020-11-23 11:26:23', 11, 'farmer'),
+(120, 'Huma Khan', '', '0000-0000000', '', 'Gul Burg, Peshawar Cantt', '21563-2000000-0', 3, 79, 'Gul Burg, Peshawar Cantt', NULL, '2020-11-26 22:13:07', '2020-11-26 22:13:07', 11, 'Patient'),
+(121, 'Hasan Iqbal', '', '0000-0000000', '', 'Location: Abbottabad', '21356-0000000-0', 7, 16, 'UC Abbottabad', NULL, '2020-11-26 22:42:34', '2020-11-26 22:42:34', 12, 'farmer'),
+(122, 'Sadam Khan', '', '0000-0000000', '', 'Location: Abbottabad', '23152-0000000-0', 7, 16, 'UC Abbottabad', NULL, '2020-11-27 06:40:46', '2020-11-27 06:40:46', 12, 'farmer'),
+(123, 'Ahsan Khan', '', '0000-0000000', '', 'Gul Burg, Peshawar Cantt', '23510-6800000-0', 3, 79, 'Gul Burg, Peshawar Cantt', NULL, '2020-11-27 09:13:26', '2020-11-27 09:13:26', 8, 'farmer'),
+(124, 'Ahsan Iqbal', '', '0000-0000000', '', 'Location Main City', '02351-0000000-0', 3, 79, 'UC Gul Bahar', NULL, '2020-11-30 22:19:49', '2020-11-30 22:19:49', 11, 'Patient'),
+(125, 'Shamroz Khan', '', '0333-0000000', '', 'Hasan Khel', '13208-8450000-0', 27, 78, 'Taru Jaba', NULL, '2020-12-02 08:05:48', '2020-12-02 08:05:48', 7, 'farmer'),
+(126, 'Haider Ali ', '', '0000-0000000', '', 'Mian Essa', '23658-4000000-0', 26, 73, 'Shabqadar', NULL, '2020-12-02 08:55:33', '2020-12-02 08:55:33', 11, 'farmer'),
+(127, 'Mumtaz Saima', '', '0000-0000000', '', 'Chaman', '02365-9900000-0', 29, 85, 'Ekka Ghund', NULL, '2020-12-02 09:30:01', '2020-12-02 09:30:01', 11, 'Patient'),
+(128, 'Major Arshad', '', '0000-0000000', '', 'Ali Khel', '21356-4233056-0', 2, 3, 'Dulu Dherai', NULL, '2020-12-02 09:39:44', '2020-12-02 09:39:44', 11, 'farmer'),
+(129, 'Mst. Nasreen Bibi', '', '0000-0000000', '', 'G-2 Street', '62180-3548000-0', 9, 47, 'Hanfia', NULL, '2020-12-02 09:45:49', '2020-12-02 09:45:49', 11, 'Patient'),
+(130, 'Salman', '', '0000-0000000', '', 'Gul Khan House', '03215-8020000-0', 13, 41, 'Ajiba', NULL, '2020-12-02 09:56:26', '2020-12-02 09:56:26', 11, 'farmer'),
+(131, 'Jamal Qadir', '', '0000-0000000', '', 'Molaganu Street', '21351-6900000-0', 3, 79, 'Nothia Qadeem', NULL, '2020-12-02 10:07:18', '2020-12-02 10:07:18', 8, 'farmer'),
+(132, 'Jibran Khan', '', '0000-0000000', '', 'Usman Khel', '03215-6000000-0', 2, 2, 'Gulu Dherai', NULL, '2020-12-02 10:56:44', '2020-12-02 10:56:44', 8, 'farm_visited'),
+(133, 'Gohar Zaman', '', '0000-0000000', '', 'House No.5', '23025-0050051-0', 11, 24, 'Sangarh', NULL, '2020-12-02 11:20:49', '2020-12-02 11:20:49', 8, 'farmer'),
+(134, 'Mohsin Khan', '', '0231-0000000', '', 'Koki Khel', '31900-0000000-0', 28, 80, 'Bara Bazar', NULL, '2020-12-03 05:30:41', '2020-12-03 05:30:41', 9, 'farmer'),
+(135, 'Arshad Kamal', '', '0312-0000000', '', 'Hassan Khel', '23568-0000000-0', 6, 63, 'Hassan Garhi', NULL, '2020-12-03 06:08:25', '2020-12-03 06:08:25', 9, 'farmer'),
+(136, 'Ali Ahmad', '', '0000-0000000', '', 'Kalu Khel', '23591-3058000-0', 3, 5, 'Pajaggi Road', NULL, '2020-12-03 06:20:27', '2020-12-03 06:20:27', 9, 'farmer'),
+(137, 'Tariq Ali', '', '0000-0000000', '', 'Mali Khel', '02315-0000000-0', 4, 60, 'Showr', NULL, '2020-12-03 07:28:53', '2020-12-03 07:28:53', 9, 'farmer'),
+(138, 'Mumtaz Khan', '', '0000-0000000', '', 'Sarkai', '02300-0000000-0', 3, 4, 'Dabgari Garden', NULL, '2020-12-03 08:27:17', '2020-12-03 08:27:17', 11, 'Patient');
 
 -- --------------------------------------------------------
 
@@ -370,6 +437,14 @@ CREATE TABLE `culture_sensitivity` (
   `doxycycline` varchar(30) DEFAULT NULL,
   `tilmicosin` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `culture_sensitivity`
+--
+
+INSERT INTO `culture_sensitivity` (`culture_sensitivity_id`, `testDetails_id`, `antibiotics_id`, `amipicilin`, `norfloxacin`, `ampiclox`, `kanamycin`, `toramycin`, `lincomycin`, `chlorampherical`, `flumiquine`, `cloacilin`, `ciprofloxacin`, `neomycin`, `negram`, `cephradin`, `penicillin`, `doxyeyclin`, `polymixin`, `erythromycin`, `sulphamethoxazoe`, `amoxicillin`, `streptomycin`, `enrofloxacin`, `urixin`, `gentamicin`, `augmentin`, `ofloxacinl`, `oxytetracyclin`, `reports`, `created_by`, `created_date`, `fLoramphenical`, `cefotaxime_Clavulanic_acid`, `tylosin`, `sulfamethoxazole`, `sulfamethoxazoleTrimethoprim`, `doxycycline`, `tilmicosin`) VALUES
+(1, 16, NULL, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Sensitive', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Sensitive', 'N/A', 'N/A', 'N/A', 'N/A', 'Sensitive', 'N/A', 'Sensitive', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Salmonella', 9, '2020-11-17 09:53:08', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+(2, 67, NULL, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Sensitive', 'N/A', 'N/A', 'Intermediate', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'Sensitive', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'e-coli', 9, '2020-12-03 06:20:27', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
 
 -- --------------------------------------------------------
 
@@ -471,7 +546,9 @@ CREATE TABLE `elisa_animal` (
 
 INSERT INTO `elisa_animal` (`elisa_animal_id`, `testDetails_id`, `abortion_history`, `parity`, `vac_against_brucellosis`, `antibody_index`, `result_status`, `created_by`, `created_date`) VALUES
 (1, 8, 'Yes', 'this is testing entry', 'this is testing entry', NULL, NULL, 2, '2020-11-05 18:50:53'),
-(2, 7, 'yes', 'this is testing entry', 'this is testing entry', NULL, NULL, 2, '2020-11-05 18:52:22');
+(2, 7, 'yes', 'this is testing entry', 'this is testing entry', NULL, NULL, 2, '2020-11-05 18:52:22'),
+(3, 39, 'No', '', 'No', '145%', 'Positive', 11, '2020-11-23 10:20:54'),
+(4, 59, 'Yes', '', 'No', '145%', 'Positive', 11, '2020-12-02 09:39:44');
 
 -- --------------------------------------------------------
 
@@ -496,7 +573,10 @@ CREATE TABLE `elisa_human` (
 --
 
 INSERT INTO `elisa_human` (`elisa_human_id`, `testDetails_id`, `intibody_index`, `clinical_sign`, `animal_contact`, `treatment_used`, `result_status`, `created_by`, `created_date`) VALUES
-(1, 6, NULL, 'this is testing entry', 'Yes', 'this is testing entry', '', 2, '2020-11-05 12:41:18');
+(1, 6, NULL, 'this is testing entry', 'Yes', 'this is testing entry', '', 2, '2020-11-05 12:41:18'),
+(2, 38, '6.5', 'Fever', 'Yes', 'Nil', 'Negative', 11, '2020-11-23 09:53:35'),
+(3, 58, '6.5', 'Fever and Pain', 'Yes', 'Nil', 'Negative', 11, '2020-12-02 09:33:41'),
+(4, 80, NULL, 'Fever', 'Yes', 'Nil', '', 11, '2020-12-08 07:18:43');
 
 -- --------------------------------------------------------
 
@@ -534,8 +614,17 @@ CREATE TABLE `haematology` (
 --
 
 INSERT INTO `haematology` (`haematology_id`, `testDetails_id`, `WBC`, `lymph1`, `mon1`, `gran1`, `lymph2`, `mon2`, `gran2`, `RBC`, `HGB`, `HCT`, `MCV`, `MCH`, `MCHC`, `RDW`, `PLT`, `MPV`, `PDW`, `PCT`, `created_by`, `created_date`) VALUES
-(1, 13, '3', NULL, NULL, NULL, NULL, NULL, NULL, '3', '4', '2', '2', '3', '4', '2', '34', '4', '5', '4', 2, '2020-12-07 07:33:26'),
-(2, 14, '34', '23', '3', '43', NULL, NULL, NULL, '324', '3', '43', '32', '23', '2', '4', '32', '2', '34', '4', 2, '2020-12-07 11:33:07');
+(1, 18, '13.9', '258', '86', '1235', NULL, NULL, NULL, '6.28', '6.3', '19.9', '31.7', '31.6', '31.6', '18.1', '1055', '3.9', '15.9', '0.1411', 9, '2020-11-17 10:49:12'),
+(2, 31, '8.3', '254', '25', '365', NULL, NULL, NULL, '8.17', '8.1', '27.4', '33.6', '9.9', '29.5', '16.7', '324', '4.3', '16.6', '0.139', 9, '2020-11-20 11:04:29'),
+(3, 32, '8.3', '125', '258', '36', NULL, NULL, NULL, '8.17', '8.1', '27.4', '33.6', '9.9', '29.5', '16.7', '324', '4.3', '16.6', '0.139', 9, '2020-11-20 11:09:19'),
+(4, 33, '8.3', NULL, NULL, NULL, NULL, NULL, NULL, '8.17', '8.1', '27.4', '33.6', '9.9', '29.5', '16.7', '324', '4.3', '16.6', '0.139', 9, '2020-11-23 07:00:59'),
+(5, 68, '8.3', '125', '258', '36', NULL, NULL, NULL, '8.17', '8.1', '27.4', '33.6', '9.9', '29.5', '16.7', '324', '4.3', '16.6', '0.139', 9, '2020-12-03 07:28:53'),
+(6, 73, '6.1', '42.2', '3.9', '53.9', NULL, NULL, NULL, '5.23', '8.6', '33.7', '64.6', '16.4', '25.5', '18.3', '573', '7.1', '17.7', '0.406', 9, '2020-12-04 06:04:13'),
+(7, 74, '6.2', '40.8', '4.0', '55.2', NULL, NULL, NULL, '5.15', '8.8', '33.4', '65.0', '17.0', '26.3', '18.2', '556', '7.3', '17.7', '0.405', 9, '2020-12-04 06:49:28'),
+(8, 75, '6.2', '44.2', '6.3', '49.5', NULL, NULL, NULL, '5.14', '8.8', '33.1', '64.5', '17.1', '26.5', '18.1', '549', '7.1', '17.3', '0.389', 9, '2020-12-04 07:31:15'),
+(9, 76, '6.1', NULL, NULL, NULL, NULL, NULL, NULL, '5.19', '8.8', '33.6', '64.9', '16.9', '26.1', '17.9', '540', '7.6', '17.4', '0.410', 9, '2020-12-04 08:24:35'),
+(10, 77, '6.1', NULL, NULL, NULL, NULL, NULL, NULL, '5.72', '9.0', '35.1', '61.4', '15.7', '25.6', '18.5', '?????', '???????', '???????', '??????', 9, '2020-12-04 09:00:29'),
+(11, 78, '6.2', NULL, NULL, NULL, NULL, NULL, NULL, '6.34', '10.3', '39.4', '62.2', '16.2', '26.1', '18.2', '??????????', '?????????', '?????????', '?????????', 9, '2020-12-04 09:23:27');
 
 -- --------------------------------------------------------
 
@@ -561,7 +650,11 @@ CREATE TABLE `impression_smear` (
 --
 
 INSERT INTO `impression_smear` (`impression_smear_id`, `testDetails_id`, `type_specimen`, `animals_specimen`, `examined_for`, `result`, `remarks`, `examined_by`, `created_by`, `created_date`) VALUES
-(1, 12, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-11-25 07:12:37');
+(1, 14, NULL, NULL, NULL, 'Gram Positive Bicili  was obse', 'Nil', 'Dr. InamUllah Wazir', 9, '2020-11-17 09:12:25'),
+(2, 15, NULL, NULL, NULL, 'Gram Positive Bicili ', ' Nil', 'Dr. InamUllah Wazir', 9, '2020-11-17 09:30:38'),
+(3, 30, NULL, NULL, NULL, 'Bicili Bacteria', ' Bicili Bacteria found the sam', 'Dr. Inam Ullah Wazir', 9, '2020-11-20 10:56:53'),
+(4, 65, NULL, NULL, NULL, 'Bicili', ' Bicili Bacteria found in the ', 'Dr. Inam Ullah Wazir', 9, '2020-12-03 05:30:41'),
+(5, 81, NULL, NULL, NULL, 'Bicili', ' Bicili Bacteria was observed ', 'Dr. Inam Ullah Wazir', 9, '2020-12-08 07:34:44');
 
 -- --------------------------------------------------------
 
@@ -591,11 +684,14 @@ INSERT INTO `labs` (`lab_id`, `directorate_id`, `center_station_id`, `section_id
 (3, 2, 4, 3, 'Pathology Lab', 'lab', 'dsfa', 1, 2, '2020-08-06 11:00:10'),
 (4, 3, 4, 4, 'Pathology & Bacteriology Lab', 'lab', 'This is Pathology & Bacteriology Lab at CMB, VRI Peshawar', 0, 2, '2020-08-26 06:19:28'),
 (5, 2, 4, 1, 'Mastitis Lab', 'lab', 'this is Mastitis Lab Peshawar', 0, 2, '2020-08-31 13:31:56'),
-(6, 2, 4, 4, 'Bacteriology Lab ', 'lab', 'this is Pathology & Bacteriology Lab ', 0, 2, '2020-08-31 13:44:25'),
+(6, 2, 4, 4, 'Bacteriology Lab ', 'lab', 'this is Pathology & Bacteriology Lab ', 1, 2, '2020-08-31 13:44:25'),
 (7, 3, 4, 3, 'TB&VPH Lab', 'lab', 'TB&VPH Lab', 0, 2, '2020-08-31 13:46:48'),
 (8, 2, 4, 2, 'Virology  Lab ', 'lab', 'Virology lab peshawar', 0, 2, '2020-08-31 13:47:25'),
 (9, 2, 4, 6, 'Animal Biotechnology Lab', 'lab', 'this is Animal Biotechnology Lab', 0, 2, '2020-09-24 07:35:53'),
-(10, 4, 19, 8, 'Information Technology Cell', 'lab', 'IT Cell - L&DD(Research) KP Peshawar', 0, 2, '2020-10-06 06:08:48');
+(10, 4, 19, 8, 'Information Technology Cell', 'lab', 'IT Cell - L&DD(Research) KP Peshawar', 0, 2, '2020-10-06 06:08:48'),
+(11, 3, 7, 9, 'Microbiology Laboratory', 'lab', 'Micro Lab', 1, 2, '2020-11-26 22:30:45'),
+(12, 3, 7, 10, 'Pathology & Bacteriology Laboratory', 'lab', 'Pathology & Bacteriology Laboratory of the VR&DIC Abbottabad', 1, 2, '2020-11-27 10:39:12'),
+(13, 3, 7, 10, 'Pathology & Bacteriology Laboratory', 'lab', 'Pathology & Bacteriology Lab at VR&DIC Abbottabad', 0, 2, '2020-11-27 10:42:17');
 
 -- --------------------------------------------------------
 
@@ -606,6 +702,10 @@ INSERT INTO `labs` (`lab_id`, `directorate_id`, `center_station_id`, `section_id
 CREATE TABLE `mastitis` (
   `mastitis_id` int(11) NOT NULL,
   `testDetails_id` int(11) NOT NULL,
+  `result_status` varchar(30) DEFAULT NULL,
+  `neg_ph` float DEFAULT NULL,
+  `neg_ssc` double DEFAULT NULL,
+  `neg_gross_appearance` varchar(30) DEFAULT NULL,
   `cal_kid_lambing_date` varchar(50) DEFAULT NULL,
   `daily_milk_production` varchar(50) DEFAULT NULL,
   `lactation_no` varchar(50) DEFAULT NULL,
@@ -648,8 +748,23 @@ CREATE TABLE `mastitis` (
 -- Dumping data for table `mastitis`
 --
 
-INSERT INTO `mastitis` (`mastitis_id`, `testDetails_id`, `cal_kid_lambing_date`, `daily_milk_production`, `lactation_no`, `total_animals_at_farm`, `in_milk`, `dry_period_given`, `prev_mastatis_rec_of_anim`, `prev_mastatis_rec_of_farm`, `prac_mastatis_test_at_farm`, `mastitis_r1`, `mastitis_r2`, `mastitis_l1`, `mastitis_l2`, `milk_ph_r1`, `milk_ph_r2`, `milk_ph_l1`, `milk_ph_l2`, `s_c_c_r1`, `s_c_c_r2`, `s_c_c_l1`, `s_c_c_l2`, `gross_appearance_r1`, `gross_appearance_r2`, `gross_appearance_l1`, `gross_appearance_l2`, `quarters`, `mastitis_severity`, `milk_ph`, `s_c_c`, `gross_appearance`, `clinical_gross_appearance`, `clinical_or_sub`, `composite_or_ind`, `refer_to_bacteriology_sec_for`, `created_by`, `created_date`) VALUES
-(1, 11, '11/17/2020', '', '2', '50', '2', '2', 'No', 'No', 'No', 'Mild', 'Mild', 'Mild', '', '32423', '324', '234', '', '423423', '23423', '234', '', 'Clots', 'Clots', 'Clots', '', 'L2', '', '', '', '', '', 'Sub Clinical', 'Individual', '', 2, '2020-11-17 08:42:46');
+INSERT INTO `mastitis` (`mastitis_id`, `testDetails_id`, `result_status`, `neg_ph`, `neg_ssc`, `neg_gross_appearance`, `cal_kid_lambing_date`, `daily_milk_production`, `lactation_no`, `total_animals_at_farm`, `in_milk`, `dry_period_given`, `prev_mastatis_rec_of_anim`, `prev_mastatis_rec_of_farm`, `prac_mastatis_test_at_farm`, `mastitis_r1`, `mastitis_r2`, `mastitis_l1`, `mastitis_l2`, `milk_ph_r1`, `milk_ph_r2`, `milk_ph_l1`, `milk_ph_l2`, `s_c_c_r1`, `s_c_c_r2`, `s_c_c_l1`, `s_c_c_l2`, `gross_appearance_r1`, `gross_appearance_r2`, `gross_appearance_l1`, `gross_appearance_l2`, `quarters`, `mastitis_severity`, `milk_ph`, `s_c_c`, `gross_appearance`, `clinical_gross_appearance`, `clinical_or_sub`, `composite_or_ind`, `refer_to_bacteriology_sec_for`, `created_by`, `created_date`) VALUES
+(1, 26, NULL, NULL, NULL, NULL, '11/20/2020', '', '2', '1', '1', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', '', '', '', '', 'Yellowish', 'Clinical', NULL, '', 8, '2020-11-20 06:08:36'),
+(2, 28, NULL, NULL, NULL, NULL, '11/20/2020', '', '3', '1', '1', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Moderate', '5', '500000', 'Bloody', '', 'Sub Clinical', 'Composite', '', 8, '2020-11-20 10:37:51'),
+(3, 29, NULL, NULL, NULL, NULL, '11/20/2020', '', '2', '1', '1', '2 Months', 'No', 'No', 'No', '', 'Mild', '', 'Severe', '', '5', '', '8', '', '290000', '', '800000', '', 'Beads', '', 'Normal', 'L2', '', '', '', '', '', 'Sub Clinical', 'Individual', '', 8, '2020-11-20 10:49:41'),
+(4, 43, NULL, NULL, NULL, NULL, '11/27/2020', '', '3', '10', '5', 'No Record', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', '', '', '', '', 'Beads', 'Clinical', NULL, '', 12, '2020-11-26 22:42:34'),
+(5, 44, 'Negative', 2, 2, 'Yellowish', '11/27/2020', '', '4', '4', '2', 'No Record', 'No', 'No', 'No', '', '', '', '', '0.00', '0.00', '0.00', '', '', '', '', '', '', '', '', '', 'L2', '', '0.00', '', '', '', 'Clinical', NULL, '', 12, '2020-11-27 06:40:46'),
+(6, 45, NULL, NULL, NULL, NULL, '11/27/2020', '', '3', '7', '2', '3 months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Severe', '6', '500000', 'Normal', '', 'Sub Clinical', 'Composite', '', 12, '2020-11-27 07:38:19'),
+(7, 46, NULL, NULL, NULL, NULL, '11/27/2020', '', '2', '2', '2', 'No Record', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Moderate', '8', '600000', 'Yellowish', '', 'Sub Clinical', 'Composite', '', 8, '2020-11-27 09:13:26'),
+(8, 48, NULL, NULL, NULL, NULL, '11/27/2020', '', '2', '5', '2', '3 months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', '', '', '', '', 'Clots', 'Clinical', NULL, '', 2, '2020-11-27 09:32:52'),
+(9, 62, NULL, NULL, NULL, NULL, '12/02/2020', '', '2', '3', '1', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Moderate', '8', '300000', 'Yellowish', 'Beads', 'Clinical', 'Composite', '', 8, '2020-12-02 10:07:18'),
+(10, 63, NULL, NULL, NULL, NULL, '12/02/2020', '', '2', '5', '2', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Severe', '9', '3400000', 'Bloody', '', 'Sub Clinical', 'Composite', '', 8, '2020-12-02 10:56:44'),
+(11, 64, NULL, NULL, NULL, NULL, '12/02/2020', '', '3', '23', '14', '2 Months', 'No', 'No', 'No', 'Negative', 'Severe', 'Mild', '', '7', '9', '8', '', '100000', '350000', '290000', '', 'Yellowish', 'Normal', 'Normal', '', 'L2', '', '', '', '', '', 'Sub Clinical', 'Individual', '', 8, '2020-12-02 11:20:49'),
+(12, 70, NULL, NULL, NULL, NULL, '12/03/2020', '', '2', '6', '2', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', '', '', '', '', 'Yellowish', 'Clinical', NULL, '', 8, '2020-12-03 09:19:38'),
+(13, 72, NULL, NULL, NULL, NULL, '12/03/2020', '', '1', '5', '2', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Mild', '8', '350000', 'Clots', '', 'Sub Clinical', 'Composite', '', 8, '2020-12-03 10:55:18'),
+(14, 82, NULL, NULL, NULL, NULL, '12/08/2020', '', '2', '3', '2', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Moderate', '8', '600000', 'Yellowish', '', 'Sub Clinical', 'Composite', '', 8, '2020-12-08 10:18:19'),
+(15, 83, NULL, NULL, NULL, NULL, '12/08/2020', '', '1', '7', '3', '2 Months', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'L2', 'Severe', '9', '600000', 'Normal', '', 'Sub Clinical', 'Composite', '', 8, '2020-12-08 10:27:40'),
+(16, 84, NULL, NULL, NULL, NULL, '12/08/2020', '', '1', '8', '2', '2 Months', 'No', 'No', 'No', 'Mild', '', 'Moderate', 'Negative', '8', '', '6', '6', '200000', '', '600000', '100000', 'Clots', '', 'Bloody', 'Normal', 'L2', '', '', '', '', '', 'Sub Clinical', 'Individual', '', 8, '2020-12-08 10:34:58');
 
 -- --------------------------------------------------------
 
@@ -697,7 +812,10 @@ CREATE TABLE `mrt` (
 --
 
 INSERT INTO `mrt` (`mrt_id`, `testDetails_id`, `abortion_history`, `parity`, `vac_against_brucellosis`, `result_status`, `created_by`, `created_date`) VALUES
-(1, 4, 'Yes', 'this is testing entry', 'this is testing entry', '', 2, '2020-11-05 12:38:25');
+(1, 4, 'Yes', 'this is testing entry', 'this is testing entry', '', 2, '2020-11-05 12:38:25'),
+(2, 24, 'Yes', '', 'No', '', 2, '2020-11-19 08:19:30'),
+(3, 37, 'Yes', '', 'No', 'Negative', 11, '2020-11-23 09:11:12'),
+(4, 55, 'Yes', '', 'No', 'Negative', 11, '2020-12-02 08:55:33');
 
 -- --------------------------------------------------------
 
@@ -721,7 +839,9 @@ CREATE TABLE `pcr_animal` (
 --
 
 INSERT INTO `pcr_animal` (`pcr_animal_id`, `testDetails_id`, `abortion_history`, `parity`, `vac_against_brucellosis`, `result_status`, `created_by`, `created_date`) VALUES
-(1, 9, 'Yes', 'this is testing entry', 'this is testing entry', '', 2, '2020-11-05 19:05:51');
+(1, 9, 'Yes', 'this is testing entry', 'this is testing entry', 'Found', 2, '2020-11-05 19:05:51'),
+(2, 41, 'No', '', 'No', 'Found', 11, '2020-11-23 11:26:23'),
+(3, 61, 'Yes', '', 'No', 'Negative', 11, '2020-12-02 09:56:26');
 
 -- --------------------------------------------------------
 
@@ -745,7 +865,9 @@ CREATE TABLE `pcr_human` (
 --
 
 INSERT INTO `pcr_human` (`pcr_human_id`, `testDetails_id`, `result_status`, `created_by`, `created_date`, `clinical_sign`, `animal_contact`, `treatment_used`) VALUES
-(1, 1, 'not_found', 2, '2020-11-04 17:17:12', 'this is testing entry', 'Yes', 'this is testing entry');
+(1, 1, 'not_found', 2, '2020-11-04 17:17:12', 'this is testing entry', 'Yes', 'this is testing entry'),
+(2, 40, 'not_found', 11, '2020-11-23 11:03:59', 'Fever and Pain', 'Yes', 'Nil'),
+(3, 60, 'Negative', 11, '2020-12-02 09:47:43', 'Fever', 'Yes', 'Nil');
 
 -- --------------------------------------------------------
 
@@ -769,7 +891,11 @@ CREATE TABLE `rbpt` (
 --
 
 INSERT INTO `rbpt` (`rbpt_id`, `testDetails_id`, `abortion_history`, `parity`, `vac_against_brucellosis`, `result_status`, `created_by`, `created_date`) VALUES
-(1, 3, 'Yes', 'this is testing entry', 'this is testing entry', '', 2, '2020-11-05 12:19:06');
+(1, 3, 'Yes', 'this is testing entry', 'this is testing entry', '', 2, '2020-11-05 12:19:06'),
+(2, 23, 'Yes', '', 'No', 'Negative', 2, '2020-11-18 10:23:56'),
+(3, 36, 'No', '', 'No', 'Negative', 11, '2020-11-23 08:56:00'),
+(4, 52, 'Yes', '', 'No', 'Positive', 11, '2020-12-01 11:27:30'),
+(5, 57, 'Yes', '', 'No', 'Positive', 11, '2020-12-02 09:19:25');
 
 -- --------------------------------------------------------
 
@@ -899,7 +1025,8 @@ INSERT INTO `sectionhelp` (`sectionHelp_id`, `sectionHelp_name`, `is_trash`, `cr
 (5, 'Animal Biotecnology Section', 0, 1, '2020-08-08 20:24:29'),
 (6, 'Virology Section', 0, 1, '2020-08-08 20:24:29'),
 (7, 'afadsf & adsf', 1, 2, '2020-09-15 19:07:09'),
-(8, 'Information Technology Cell', 0, 2, '2020-10-06 06:07:25');
+(8, 'Information Technology Cell', 0, 2, '2020-10-06 06:07:25'),
+(9, 'Microbiology Section', 1, 2, '2020-11-26 22:29:22');
 
 -- --------------------------------------------------------
 
@@ -929,7 +1056,9 @@ INSERT INTO `sections` (`section_id`, `directorate_id`, `center_station_id`, `se
 (5, 3, 4, 4, 0, 2, '2020-09-24 07:16:47'),
 (6, 3, 4, 5, 0, 2, '2020-09-24 07:25:10'),
 (7, 3, 4, 1, 1, 2, '2020-10-01 11:18:53'),
-(8, 4, 19, 8, 0, 2, '2020-10-06 06:07:54');
+(8, 4, 19, 8, 0, 2, '2020-10-06 06:07:54'),
+(9, 3, 7, 9, 1, 2, '2020-11-26 22:29:59'),
+(10, 3, 7, 1, 0, 2, '2020-11-27 10:37:52');
 
 -- --------------------------------------------------------
 
@@ -963,7 +1092,18 @@ CREATE TABLE `spat_human` (
 --
 
 INSERT INTO `spat_human` (`spat_human_id`, `testDetails_id`, `result_status`, `brucella_abortus_20`, `brucella_abortus_40`, `brucella_abortus_80`, `brucella_abortus_160`, `brucella_abortus_320`, `brucella_meletensis_20`, `brucella_meletensis_40`, `brucella_meletensis_80`, `brucella_meletensis_160`, `brucella_meletensis_320`, `created_by`, `created_date`, `clinical_sign`, `animal_contact`, `treatment_used`) VALUES
-(1, 2, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-11-05 12:13:29', 'this is testing entry', 'Yes', 'this is testing entry');
+(1, 2, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, '2020-11-05 12:13:29', 'this is testing entry', 'Yes', 'this is testing entry'),
+(2, 19, 'Negative', '+', '-', '-', '-', '-', '+', '-', '-', '-', '-', 2, '2020-11-18 05:29:48', 'Fever', 'No', 'Nil'),
+(3, 20, 'Postive', '+', '+', '+', '-', '-', '+', '+', '+', '-', '-', 2, '2020-11-18 05:41:33', 'Fever', 'Yes', 'Nil'),
+(4, 25, 'Postive', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', 2, '2020-11-26 21:30:30', 'Fever', 'Yes', 'Nil'),
+(5, 35, 'Negative', '+', '-', '-', '-', '-', '+', '-', '-', '-', '-', 11, '2020-11-23 08:35:19', 'Fever and Pain', 'No', 'Nil'),
+(6, 42, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, '2020-11-26 22:13:07', 'Fever and Pain', 'No', 'No'),
+(7, 49, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, '2020-11-30 22:19:49', 'Fever and Pain', 'Yes', 'No'),
+(8, 50, 'Postive', '+', '+', '+', '-', '-', '+', '+', '+', '-', '-', 11, '2020-12-01 09:42:30', 'Fever and Pain', 'Yes', 'Nil'),
+(9, 51, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, '2020-12-01 11:10:22', 'Fever and Pain', 'Yes', 'No'),
+(10, 56, 'Postive', '+', '+', '+', '-', '-', '+', '+', '+', '-', '-', 11, '2020-12-02 09:03:43', 'Fever and Pain', 'Yes', 'Nil'),
+(11, 69, 'Postive', '+', '+', '+', '-', '-', '+', '+', '+', '-', '-', 11, '2020-12-03 08:30:05', 'Fever and Pain', 'Yes', 'Nil'),
+(12, 79, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11, '2020-12-08 06:50:18', 'Fever', 'Yes', 'Nil');
 
 -- --------------------------------------------------------
 
@@ -1155,12 +1295,82 @@ INSERT INTO `testdetails` (`testDetails_id`, `tracking_id`, `test_id`, `client_i
 (6, 51120, 10, 10, 4, 'this is testing entry', '', '', 'Female', '3', '4', '', 0, NULL, 'nill', 'nill', '2020-11-05', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '220', 'this is testing entry', 0, '', NULL, 2, '2020-11-05 12:41:18', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
 (7, 61120, 11, 9, 1, 'this is testing entry', '', '', 'Female', '6', '6', '', 0, NULL, 'nill', 'nill', '2020-11-05', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '320.00', 'this is testing entry', 0, '', NULL, 2, '2020-11-05 18:50:28', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
 (8, 71120, 11, 9, 1, 'this is testing entry', '', '', 'Female', '6', '6', '', 0, NULL, 'nill', 'nill', '2020-11-05', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '320.00', 'this is testing entry', 0, '', NULL, 2, '2020-11-05 18:50:53', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
-(9, 81120, 13, 9, 4, 'this is testing entry', '2', '020', 'Female', '4', '3', '16', 1, NULL, 'nill', 'nill', '2020-11-06', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '180', 'this is testing entry', 0, '', NULL, 2, '2020-11-05 19:05:51', NULL, 0, 1, 0, 0, NULL, NULL, NULL, NULL),
-(10, 91120, 3, 9, 1, 'this is testing entry', '1', '020', 'Female', '4', '8', '4', 2, NULL, 'nill', 'nill', '2020-11-13', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '25', 'this is testing entry', 0, '', NULL, 2, '2020-11-13 07:29:14', NULL, 2, 0, 0, 0, NULL, NULL, NULL, NULL),
-(11, 101120, 4, 9, 1, 'this is testing entry', '1', '020', 'Female', '2', '2', '6', 2, NULL, 'nill', 'nill', '2020-11-17', '2020-11-18', 1, '2020-11-18', '       this is test recommendation/Remarks for this test entry', 'this is testing entry', NULL, '26.00', 'this is testing entry', 0, '', NULL, 2, '2020-11-17 08:42:46', '2020-11-18 21:49:50', 2, 0, 0, 0, 'No', 'nill', 'Dr. Ikram', 'RO'),
-(12, 111120, 2, 9, 3, 'this is testing entry', '1', '020', 'Female', '3', '3', '4', 1, NULL, 'nill', 'nill', '2020-11-25', NULL, 0, NULL, NULL, 'this is testing entry', NULL, '222.00', 'this is testing entry', 0, '', NULL, 2, '2020-11-25 07:12:37', NULL, 1, 0, 0, 0, NULL, NULL, NULL, NULL),
-(13, 121220, 5, 9, 1, 'this is test entry', '2', '0202', 'Male', '3', '4', '16', 1, NULL, 'nill', 'nill', '2020-12-07', '2020-12-07', 1, '2020-12-07', 'this is refer Mastitis lab for further inquiries.', 'this is test entrt', NULL, '500', 'this is test entrt', 0, '', NULL, 2, '2020-12-07 07:33:26', '2020-12-07 14:51:28', 0, 1, 0, 0, 'Doubtful', '', 'Dr. Ikram khan', 'RO'),
-(14, 131220, 5, 10, 3, 'This is testing entry', '9', '0202', 'Female', '1', '1', '26', 0, NULL, 'nill', 'nill', '2020-12-07', '1970-01-01', 1, '2020-12-07', ' This is testing entry', 'This is testing entry', NULL, '500.00', 'This is testing entry', 0, '', NULL, 2, '2020-12-07 11:33:07', '2020-12-07 16:34:36', 0, 0, 0, 0, 'Doubtful', '', 'Dr Bakht e  rawan ', 'DI (Deputy Incharge)');
+(9, 81120, 13, 9, 4, 'this is testing entry', '2', '020', 'Female', '4', '3', '16', 1, NULL, 'nill', 'nill', '2020-11-06', '2020-11-27', 1, '2020-11-27', ' Brucellosis Antigen found in the specimen.', 'this is testing entry', NULL, '180', 'this is testing entry', 0, '', NULL, 11, '2020-11-05 19:05:51', '2020-11-27 02:37:27', 0, 1, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(10, 91120, 3, 9, 1, 'this is testing entry', '1', '020', 'Female', '4', '8', '4', 2, NULL, 'nill', 'nill', '2020-11-13', '2020-12-02', 1, '2020-12-02', 'TB found Positive on the basis of AFB Staining Test.', 'this is testing entry', NULL, '25', 'this is testing entry', 0, '', NULL, 7, '2020-11-13 07:29:14', '2020-12-02 10:02:35', 2, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(11, 101120, 3, 90, 7, 'Nil', '', '', 'Female', '5', '0', '', 0, NULL, 'Parasitology CMB VRI Peshawar', 'Research Officer /Incharge', '2020-11-13', '2020-11-25', 1, '2020-11-25', ' ', 'Nil', NULL, '25', 'Nil', 0, '', NULL, 7, '2020-11-13 15:41:14', '2020-11-25 11:51:32', 0, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(12, 111120, 3, 91, 7, 'Nil', '1', 'Nil', 'Female', '6', '3', '7', 1, NULL, 'Parasitology Section, CMB, VRI Peshawar', 'Research Officer', '2020-11-16', '2020-11-16', 1, '2020-11-16', ' Remarks Here', 'Nil', NULL, '25', 'Nil', 0, '', NULL, 2, '2020-11-16 07:59:51', '2020-11-16 13:07:04', 1, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(13, 121120, 3, 90, 7, 'Nil', '1', 'Nil', 'Female', '5', '0', '14', 1, NULL, 'Parasitology Section, CMB, VRI Peshawar', 'Research Officer', '2020-11-17', '2020-11-17', 1, '2020-11-17', 'Treatment started of TB.', 'Diahrea', NULL, '25', 'Nil', 0, '', NULL, 7, '2020-11-17 06:03:13', '2020-11-17 11:23:19', 1, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(14, 131120, 2, 92, 2, 'Nil', '2', 'Nil', 'Female', '6', '0', '16', 1, NULL, 'Nil', 'Nil', '2020-11-17', '2020-11-17', 1, '2020-11-17', 'Nil', 'Nil', NULL, '50.00', 'Nil', 0, '', NULL, 9, '2020-11-17 09:12:25', '2020-11-17 14:23:03', 0, 1, 0, 0, 'Yes', 'Bicili', 'Dr. InamUllah Wazir', 'Research Officer'),
+(15, 141120, 2, 93, 3, 'Nil', '4', 'Nil', 'Female', '2', '6', '20', 20, NULL, 'DD L&DD(Ext) District Swat', 'District Director - L&DD(Ext) Swat', '2020-11-17', '2020-11-17', 1, '2020-11-17', ' Nil', 'Nil', NULL, '50.00', 'Nil', 0, '', NULL, 9, '2020-11-17 09:30:38', '2020-11-17 14:42:15', 0, 0, 10, 10, 'Yes', 'Bicili', 'Dr. InamUllah Wazir', 'Research Officer'),
+(16, 151120, 6, 94, 4, 'Nil', '5', 'Nil', 'Female', '3', '0', '12', 5, NULL, 'nill', 'nill', '2020-11-17', '2020-11-17', 1, '2020-11-17', ' Nil', 'Nil', NULL, '150.00', 'Nil', 0, '', NULL, 9, '2020-11-17 09:53:08', '2020-11-17 15:04:49', 0, 0, 0, 5, 'Yes', 'Mastitis', 'Dr. InamUllah Wazir', 'Research Officer'),
+(17, 161120, 1, 95, 5, 'Nil', '1', 'Nil', 'Female', '3', '6', '2', 10, NULL, 'nill', 'nill', '2020-11-17', '2020-11-17', 1, '2020-11-17', ' Nil', 'Symptoms Here', NULL, '50.00', 'Additional Information Here', 0, '', NULL, 9, '2020-11-17 10:38:20', '2020-11-17 15:44:34', 10, 0, 0, 0, 'N/A', 'Not Applicable', 'Dr. InamUllah Wazir', 'Research Officer'),
+(18, 171120, 5, 96, 4, 'No Specimen Detail', '1', 'Nil', 'Female', '4', '0', '5', 5, NULL, 'nill', 'nill', '2020-11-17', '2020-11-17', 1, '2020-11-17', 'No Remarks ', 'No Symptoms', NULL, '150.00', 'No Additional Information', 0, '', NULL, 9, '2020-11-17 10:49:12', '2020-11-17 15:54:21', 5, 0, 0, 0, 'N/A', 'Not Applicable', 'Dr. InamUllah Wazir', 'Research Officer'),
+(19, 181120, 7, 97, 4, 'No Specimen Details', '', '', 'Female', '', '0', '', 0, NULL, 'HMC', 'RMO', '2020-11-18', '2020-11-18', 1, '2020-11-18', ' No Remarks', 'Fever / Pain.', NULL, '100', 'No Additional Information', 0, '', NULL, 2, '2020-11-18 05:16:45', '2020-11-18 10:29:48', 0, 0, 0, 0, 'No', 'No disease found.', 'Dr. Muhammad Shahid', 'Research Officer'),
+(20, 191120, 7, 98, 4, 'No Specimen Details', '', '', 'Male', '', '0', '', 0, NULL, 'KTH', 'RMO', '2020-11-18', '2020-11-18', 1, '2020-11-18', ' Brucella antigen found positive in the patient specimen.', 'Fever', NULL, '100', 'No Additional Information', 0, '', NULL, 2, '2020-11-18 05:37:08', '2020-11-18 10:41:33', 0, 0, 0, 0, 'Yes', 'Brucella', 'Dr. Muhammad Shahid', 'Research Officer'),
+(21, 201120, 4, 99, 1, 'No Sample Details', '2', 'Nil', 'Female', '5', '6', '17', 6, NULL, 'nill', 'nill', '2020-11-18', '2020-11-18', 1, '2020-11-18', ' No Remarks!', 'No Symptoms', NULL, '20', 'No Additional Information', 0, '', NULL, 2, '2020-11-18 06:03:14', '2020-11-18 14:51:41', 0, 6, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(22, 211120, 4, 100, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '5', '6', '2', 1, NULL, 'nill', 'nill', '2020-11-18', '2020-11-18', 1, '2020-11-18', ' Mastitis found in the specimen of the Cow.', 'No Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 2, '2020-11-18 10:09:02', '2020-11-18 15:10:15', 1, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(23, 221120, 8, 101, 4, 'No Speciment Detail', '2', 'Nil', 'Female', '5', '0', '17', 1, NULL, 'nill', 'nill', '2020-11-18', '2020-11-18', 1, '2020-11-18', ' No Antigen of Brucellosis found.', 'No Symptoms.', NULL, '199.00', 'No Additional Information.', 0, '', NULL, 2, '2020-11-18 10:23:56', '2020-11-18 15:26:14', 0, 1, 0, 0, 'No', 'No disease found.', 'Dr. Muhammad Shahid', 'Research Officer'),
+(24, 231120, 9, 102, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '6', '0', '14', 1, NULL, 'Self', 'Self', '2020-11-19', NULL, 0, NULL, NULL, 'No Symptoms', NULL, '100.00', 'No Additional Information', 0, '', NULL, 2, '2020-11-19 08:19:30', NULL, 1, 0, 0, 0, NULL, NULL, NULL, NULL),
+(25, 241120, 7, 103, 4, 'No Specimen Detail', '', '', 'Male', '', '0', '', 0, NULL, 'Self', 'Self', '2020-11-19', '2020-11-27', 1, '2020-11-27', ' Remarks', 'No History', NULL, '100', 'No Additional Information', 0, '', NULL, 2, '2020-11-19 09:44:18', '2020-11-27 02:30:30', 0, 0, 0, 0, 'Yes', 'Positive', 'Dr. InamUllah Wazir', 'Research Officer'),
+(26, 251120, 4, 104, 1, 'No Specimen Detail', '2', 'Nil', 'Female', '4', '0', '17', 1, NULL, 'nill', 'nill', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Clinical Mastitis found. Referred to Bacteriology Lab for Culture Sensitivity.', 'No History/Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 8, '2020-11-20 06:08:36', '2020-11-20 15:45:42', 0, 1, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(27, 261120, 3, 105, 7, 'No Specimen Detail', '1', 'Nil', 'Female', '5', '0', '6', 8, NULL, 'Parasitology Section, CMB, VRI Peshawar', 'Research Officer', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' TB found Positive', 'No Symptoms', NULL, '25', 'No Additional Info', 0, '', NULL, 7, '2020-11-20 09:45:46', '2020-11-20 14:50:27', 5, 1, 1, 1, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(28, 271120, 4, 106, 1, 'No Specimen Detail', '2', 'Nil', 'Female', '4', '0', '15', 1, NULL, 'nill', 'nill', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Mastitis found in Moderate level.', 'No Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 8, '2020-11-20 10:37:51', '2020-11-20 15:43:09', 0, 1, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(29, 281120, 4, 107, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '5', '0', '14', 1, NULL, 'nill', 'nill', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Mastitis found.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-11-20 10:49:41', '2020-11-20 15:51:19', 1, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(30, 291120, 2, 108, 2, 'No specimen detail', '3', 'Nil', 'Male', '2', '0', '25', 1, NULL, 'nill', 'nill', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Bicili Bacteria found the sample of Dog.', 'No Symptoms', NULL, '50', 'No Additional Info', 0, '', NULL, 9, '2020-11-20 10:56:53', '2020-11-20 16:00:12', 0, 0, 0, 0, 'N/A', 'Not Applicable', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(31, 301120, 5, 109, 4, 'Nil', '1', '102', 'Female', '3', '6', '7', 1, NULL, 'Dr. Barkat Khan', 'Station Director', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Nil', 'Nil', NULL, '500', 'Nil', 0, '', NULL, 9, '2020-11-20 11:04:29', '2020-11-20 16:06:36', 1, 0, 0, 0, 'N/A', 'Not Applicable', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(32, 311120, 5, 110, 4, 'Nil', '3', 'T-56(2020)', 'Male', '3', '4', '25', 1, NULL, 'nill', 'nill', '2020-11-20', '2020-11-20', 1, '2020-11-20', ' Nill', 'Nil', NULL, '500', 'nil', 0, '', NULL, 9, '2020-11-20 11:09:19', '2020-11-20 16:11:39', 0, 0, 0, 0, 'N/A', 'Not Applicable', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(33, 321120, 5, 111, 4, 'No Specimen Detail', '4', 'Nil', 'Female', '2', '6', '18', 13, NULL, 'nill', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' Hndd', 'No Symptoms', NULL, '500', 'No Additional Info', 0, '', NULL, 9, '2020-11-23 07:00:59', '2020-11-23 12:03:28', 0, 0, 10, 3, 'N/A', 'Not Applicable', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(34, 331120, 1, 112, 5, 'No Specimen Detail', '1', 'Nil', 'Female', '4', '6', '7', 6, NULL, 'nill', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' ? found.', 'No Symptoms', NULL, '500', 'No Additional Info', 0, '', NULL, 9, '2020-11-23 07:17:03', '2020-11-23 12:22:14', 5, 1, 0, 0, 'N/A', 'Not Applicable', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(35, 341120, 7, 113, 4, 'No Specimen Detail', '', '', 'Female', '', '0', '', 0, NULL, 'HMC', 'RMO', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' No Brucella Antigen found after SPAT Test for Brucella for Human Sample.', 'Nil', NULL, '100', 'No Additional Info', 0, '', NULL, 11, '2020-11-23 08:29:47', '2020-11-23 13:35:19', 0, 0, 0, 0, 'No', 'Negative', 'Dr. Muhammad Shahid', 'Research Officer'),
+(36, 351120, 8, 114, 4, 'No Specimen Detail', '2', 'Nil', 'Female', '5', '0', '17', 1, NULL, 'Self', 'Nil', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' Brucella Antigen not found after RBPT Test for Brucella (for Animal Blood Sample)', 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-11-23 08:56:00', '2020-11-23 14:00:24', 0, 1, 0, 0, 'No', 'Negative', 'Dr. Muhammad Shahid', 'Research Officer'),
+(37, 361120, 9, 115, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '6', '0', '14', 1, NULL, 'Self', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' No Brucella Antigen found after MRT test (for Animal Milk sample).', 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-11-23 09:11:12', '2020-11-23 14:17:29', 1, 0, 0, 0, 'No', 'Negative', 'Dr. Muhammad Shahid', 'Research Officer'),
+(38, 371120, 10, 116, 4, 'No Specimen Detail', '', '', 'Female', '', '0', '', 0, NULL, 'KTH', 'RMO', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' No Brucella Antigen found by i-ELISA (IgG) test for Human.', 'Nil', NULL, '500', 'Nil', 0, '', NULL, 11, '2020-11-23 09:48:20', '2020-11-23 14:53:35', 0, 0, 0, 0, 'No', 'Negative', 'Dr. Muhammad Shahid', 'Research Officer'),
+(39, 381120, 11, 117, 4, 'No Specimen Detail', '1', '17', 'Female', '3', '0', '2', 100, NULL, 'nill', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' Brucellosis antigen found after i-ELISA test (for Animal).', 'Nil', NULL, '500', 'Nil', 0, '', NULL, 11, '2020-11-23 10:20:54', '2020-11-23 15:25:02', 100, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(40, 391120, 12, 118, 4, 'No Specimen Detail', '', '', 'Female', '', '0', '', 0, NULL, 'KTH', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', 'Brucella Antigen no found by conducting PCR for Brucellosis Test.', 'Nil', NULL, '1000', 'Nil', 0, '', NULL, 11, '2020-11-23 10:54:39', '2020-11-23 16:03:59', 0, 0, 0, 0, 'No', 'Negative', 'Dr. Muhammad Shahid', 'Research Officer'),
+(41, 401120, 13, 119, 4, 'No Specimen Detail', '1', 'Nil', 'Female', '4', '0', '2', 1, NULL, 'Dr. Meezan', 'nill', '2020-11-23', '2020-11-23', 1, '2020-11-23', ' Brucellosis antigen found after PCR (for Animal sample).', 'Nil', NULL, '1000', 'Nil', 0, '', NULL, 11, '2020-11-23 11:26:23', '2020-11-23 16:29:25', 1, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(42, 411120, 7, 120, 4, 'No Specimen Detail', '', '', 'Female', '', '0', '', 0, NULL, 'KTH', 'nill', '2020-11-27', NULL, 0, NULL, NULL, 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-11-26 22:13:07', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(43, 421120, 16, 121, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '4', '0', '7', 10, NULL, 'L&DD(Ext)', 'nill', '2020-11-27', '2020-11-27', 1, '2020-11-27', 'Clinical Mastitis found in the milk sample.', 'No History', NULL, '20', 'No Additional Info', 0, '', NULL, 12, '2020-11-26 22:42:34', '2020-11-27 11:03:58', 10, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(44, 431120, 17, 122, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '5', '0', '2', 4, NULL, 'Dr. Safdar L&DD(Ext)', 'District Director - L&DD(Ext) Abbottabad', '2020-11-27', '2021-01-06', 1, '2021-01-06', 'this is test Remarks and Description', 'No Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 2, '2020-11-27 06:40:46', '2021-01-06 13:25:48', 4, 0, 0, 0, 'No', '', 'Dr. Test Dr', 'Test Designation'),
+(45, 441120, 16, 109, 1, 'No Specimen Detail', '2', 'Nil', 'Female', '5', '5', '17', 7, NULL, 'Dr. Barkat Khan ', 'Station Director', '2020-11-27', '2020-11-27', 1, '2020-11-27', ' Sub Clinical Mastitis found of +++ severity.', 'Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 12, '2020-11-27 07:38:19', '2020-11-27 12:42:45', 0, 5, 0, 2, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(46, 451120, 4, 123, 1, 'No Specimen Detail', '1', 'Nil', 'Female', '5', '0', '7', 2, NULL, 'DD-L&DD(Ext) Peshawar', 'Nil', '2020-11-27', '2020-12-01', 1, '2020-12-01', ' llgfg', 'No Symptoms', NULL, '20', 'No Additional Info', 0, '', NULL, 2, '2020-11-27 09:13:26', '2020-12-01 02:44:09', 2, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(47, 461120, 3, 27, 7, 'Nil', '1', 'Nil', 'Female', '4', '0', '7', 2, NULL, 'nill', 'nill', '2020-11-27', '2020-11-30', 1, '2020-11-30', ' TB found Positive', 'No Symptoms', NULL, '25', 'No Additional Info', 0, '', NULL, 2, '2020-11-27 09:24:37', '2020-11-30 10:25:59', 2, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(48, 471120, 4, 27, 1, 'Nil', '2', 'Nil', 'Female', '2', '0', '15', 5, NULL, 'nill', 'nill', '2020-11-27', '2020-11-28', 1, '2020-11-28', ' Mastitis found.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 2, '2020-11-27 09:32:52', '2020-11-28 15:16:37', 2, 3, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(49, 481220, 7, 124, 4, 'No Detail', '', '', 'Male', '', '4', '', 0, NULL, 'nill', 'nill', '2020-12-01', NULL, 0, NULL, NULL, 'No Symptoms', NULL, '100', 'No Info', 0, '', NULL, 11, '2020-11-30 22:19:49', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(50, 491220, 7, 27, 4, 'No Specimen Detail', '', '', 'Male', '', '0', '', 0, NULL, 'nill', 'nill', '2020-12-01', '2020-12-01', 1, '2020-12-01', 'Brucellosis Antigen found in the blood sample of human after SPAT Test.', 'No Symptoms', NULL, '100', 'No Additional Info', 0, '', NULL, 11, '2020-12-01 09:35:55', '2020-12-01 14:42:30', 0, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Kamran', 'Research Officer'),
+(51, 501220, 7, 27, 4, 'Nil', '', '', 'Male', '', '0', '', 0, NULL, 'nill', 'nill', '2020-12-01', NULL, 0, NULL, NULL, 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-12-01 11:10:22', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(52, 511220, 8, 27, 4, 'No Detial', '1', 'Nil', 'Female', '5', '0', '14', 2, NULL, 'nill', 'nill', '2020-12-01', '2020-12-01', 1, '2020-12-01', ' Brucella Antigen found in the provided Blood specimen of the Cow after RBPT Test.', 'No Symptoms', NULL, '100', 'No Additional Info', 0, '', NULL, 11, '2020-12-01 11:27:30', '2020-12-01 16:30:38', 2, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(53, 521220, 3, 27, 7, 'No Detail', '1', 'Nil', 'Female', '5', '0', '7', 5, NULL, 'Dr. Sabz Ali L&DD(Ext)', 'Veterinary Officer - CVH Peshawar', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' TB found in the sample.', 'No Symptoms', NULL, '25', 'No Additional Info', 0, '', NULL, 7, '2020-12-02 05:13:03', '2020-12-02 12:54:54', 5, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(54, 531220, 3, 125, 1, 'No Detail', '1', 'Nil', 'Female', '5', '0', '7', 10, NULL, 'DD - L&DD(Ext) Nowshera', 'District Director ', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' TB found in the sample.', 'No Symptoms', NULL, '25', 'No Additional Information', 0, '', NULL, 7, '2020-12-02 08:05:48', '2020-12-02 13:07:25', 10, 0, 0, 0, 'Yes', 'TB', 'Dr. Maleeha Anwar', 'Research Officer'),
+(55, 541220, 9, 126, 1, 'Nil', '2', 'Nil', 'Female', '6', '0', '17', 3, NULL, 'Self', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' The processed sample of animal is found Negative for Brucella Antigen.', 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-12-02 08:55:33', '2020-12-02 13:57:08', 0, 3, 0, 0, 'No', '', 'Dr. Muhammad Shahid', 'Research Officer'),
+(56, 551220, 7, 27, 4, 'Nil', '', '', 'Male', '', '0', '', 0, NULL, 'KTH', 'Medical Specialist', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Brucella Antigen found in SPAT test.', 'No Symptoms', NULL, '100', 'No Additional Information', 0, '', NULL, 11, '2020-12-02 09:02:31', '2020-12-02 14:03:43', 0, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(57, 561220, 8, 27, 4, 'Nil', '2', 'Nil', 'Female', '8', '6', '17', 5, NULL, 'HMC', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Brucella Antigen found in specimen.', 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-12-02 09:19:25', '2020-12-02 14:20:37', 0, 5, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(58, 571220, 10, 127, 4, 'Nil', '', '', 'Female', '', '0', '', 0, NULL, 'KTH', 'Hospital Director', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Brucella Antigen not found in the specimen.', 'Nil', NULL, '500', 'Nil', 0, '', NULL, 11, '2020-12-02 09:30:01', '2020-12-02 14:33:41', 0, 0, 0, 0, 'No', '', 'Dr. Muhammad Shahid', 'Research Officer'),
+(59, 581220, 11, 128, 4, 'Nil', '1', 'Nil', 'Female', '4', '0', '2', 4, NULL, 'Self', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Brucella Antigen found in the sample by i-ELISA for Brucellosis (Animal).', 'Nil', NULL, '500', 'Nil', 0, '', NULL, 11, '2020-12-02 09:39:44', '2020-12-02 14:41:31', 0, 4, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(60, 591220, 12, 129, 4, 'Nil', '', '', 'Female', '', '0', '', 0, NULL, 'KTH', 'Hospital Director', '2020-12-02', '2020-12-02', 1, '2020-12-02', 'Not found Brucella Antigen on PCR for Human.', 'Nil', NULL, '1000', 'Nil', 0, '', NULL, 11, '2020-12-02 09:45:49', '2020-12-02 14:47:43', 0, 0, 0, 0, 'No', '', 'Dr. Muhammad Shahid', 'Research Officer'),
+(61, 601220, 13, 130, 4, 'Nil', '1', 'Nil', 'Female', '4', '0', '4', 3, NULL, 'Dr. Meezan', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Brucella Antigen no t found.', 'Nil', NULL, '1000', 'Nil', 0, '', NULL, 11, '2020-12-02 09:56:26', '2020-12-02 14:57:29', 3, 0, 0, 0, 'No', '', 'Dr. Muhammad Shahid', 'Research Officer'),
+(62, 611220, 4, 131, 1, 'Nil', '1', 'Nil', 'Female', '3', '0', '6', 3, NULL, 'Self', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Clinical Mastitis found in the milk sample.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-02 10:07:18', '2020-12-02 15:12:57', 3, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(63, 621220, 4, 132, 1, 'Nil', '2', 'Nil', 'Female', '6', '0', '17', 5, NULL, 'Self', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', 'Sub-Clinical Mastitis found with a severity of +++.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-02 10:56:44', '2020-12-02 16:03:05', 2, 3, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(64, 631220, 4, 133, 1, 'Nil', '4', 'Nil', 'Female', '3', '0', '18', 23, NULL, 'Self', 'nill', '2020-12-02', '2020-12-02', 1, '2020-12-02', ' Mastitis found  as in the above teat.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-02 11:20:49', '2020-12-02 16:25:02', 2, 1, 10, 10, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(65, 641220, 2, 134, 2, 'Nil', '1', 'Nil', 'Female', '5', '0', '7', 19, NULL, 'Self', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' Bicili Bacteria found in the Impression Smear of the provided sample of liver.', 'Nil', NULL, '50', 'Nil', 0, '', NULL, 9, '2020-12-03 05:30:41', '2020-12-03 10:50:34', 2, 5, 2, 10, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(66, 651220, 1, 135, 5, 'Nil', '2', 'Nil', 'Female', '5', '0', '17', 3, NULL, 'Self', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' ', 'Nil', NULL, '50', 'Nil', 0, '', NULL, 9, '2020-12-03 06:08:25', '2020-12-03 11:13:30', 0, 3, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(67, 661220, 6, 136, 1, 'Nil', '1', 'Nil', 'Female', '4', '0', '14', 6, NULL, 'Self', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', 'Sensitive for Amoxicillin.', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-03 06:20:27', '2020-12-03 12:15:02', 6, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(68, 671220, 5, 137, 4, 'Nil', '1', 'Nil', 'Female', '4', '0', '5', 16, NULL, 'Self', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' Remarks Here', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-03 07:28:53', '2020-12-03 12:30:44', 4, 4, 2, 4, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(69, 681220, 7, 138, 4, 'Nil', '', '', 'Male', '', '0', '', 0, NULL, 'KTH', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' Brucella antigen found in the blood sample.', 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-12-03 08:27:17', '2020-12-03 13:30:05', 0, 0, 0, 0, 'Yes', 'Brucellosis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(70, 691220, 4, 27, 1, 'Nil', '1', 'Nil', 'Female', '5', '0', '14', 6, NULL, 'Self', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' Clinical Mastitis found in the specimen. Forwarded to Pathology & Bacteriology Laboratory for Culture Sensitivity.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-03 09:19:38', '2020-12-03 14:21:37', 3, 3, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(71, 701220, 1, 27, 5, 'Nil', '1', 'Nil', 'Female', '5', '0', '4', 0, NULL, 'nill', 'nill', '2020-12-03', NULL, 0, NULL, NULL, 'Nil', NULL, '50', 'Nil', 0, '', NULL, 9, '2020-12-03 10:37:01', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(72, 711220, 4, 27, 1, 'Nil', '1', 'Nil', 'Female', '4', '0', '2', 3, NULL, 'nill', 'nill', '2020-12-03', '2020-12-03', 1, '2020-12-03', ' kjg', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-03 10:55:18', '2020-12-03 15:59:10', 3, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Muhammad Shahid', 'Research Officer'),
+(73, 721220, 5, 27, 4, 'Nil', '9', 'Nil', 'Male', '0', '6', '27', 10, NULL, 'Self', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' The values Gran#, Gran%, MCV, RDW & MPV are High . Values of Lymph%, RBC, HGB, HCT MCHC are Low from their normal ranges while the remaining parameters are found Normal.', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 06:04:13', '2020-12-04 11:12:23', 0, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(74, 731220, 5, 27, 4, 'Nil', '6', 'Nil', 'Female', '0', '4', '28', 5, NULL, 'Self', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' In the above parameters, the value of only MPV parameter is High, the values of Lymph#, HGB, MCH & MCHC are Low  from their Normal Ranges, while values of the remaining parameters are Normal.', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 06:49:28', '2020-12-04 11:56:12', 0, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(75, 741220, 5, 27, 4, 'Nil', '1', 'Nil', 'Female', '2', '0', '7', 10, NULL, 'Self', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' In the above parameter values of MCV & MPV are High, values of HGB & MCHC are Low from their Normal Ranges while the remaining parameters are Normal.', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 07:31:15', '2020-12-04 12:36:48', 10, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(76, 751220, 5, 27, 4, 'Nil', '2', 'Nil', 'Female', '2', '0', '17', 5, NULL, 'Self', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' In the above parameters value of only PLT is High, value of HGB, MCH & MCHC are Low from their Normal Ranges, while the remaining parameters are Normal. ', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 08:24:35', '2020-12-04 13:30:18', 0, 5, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(77, 761220, 5, 27, 4, 'Nil', '7', 'Nil', 'Male', '3', '0', '34', 4, NULL, 'Self', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' slfsldjf sdfjsldkfnlskdfn', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 09:00:29', '2020-12-04 14:03:28', 0, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(78, 771220, 5, 27, 4, 'Nil', '4', 'Nil', 'Female', '3', '0', '18', 4, NULL, 'nill', 'nill', '2020-12-04', '2020-12-04', 1, '2020-12-04', ' Nil', 'Nil', NULL, '150', 'Nil', 0, '', NULL, 9, '2020-12-04 09:23:27', '2020-12-04 14:30:22', 0, 0, 4, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(79, 781220, 7, 27, 4, 'Nil', '', '', 'Female', '', '0', '', 0, NULL, 'nill', 'nill', '2020-12-08', NULL, 0, NULL, NULL, 'Nil', NULL, '100', 'Nil', 0, '', NULL, 11, '2020-12-08 06:50:18', NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(80, 791220, 10, 27, 4, 'Nil', '1', 'Nil', 'Male', '5', '0', '4', 4, NULL, 'nill', 'nill', '2020-12-08', NULL, 0, NULL, NULL, 'Nil', NULL, '500', 'Nil', 0, '', NULL, 11, '2020-12-08 07:18:43', NULL, 4, 0, 0, 0, NULL, NULL, NULL, NULL),
+(81, 801220, 2, 27, 10, 'Nil', '1', 'Nil', 'Female', '5', '0', '14', 3, NULL, 'nill', 'nill', '2020-12-08', '2020-12-08', 1, '2020-12-08', ' Bicili Bacteria was observed in the impression smear after Gram Staining.', 'Nil', NULL, '50', 'Nil', 0, '', NULL, 9, '2020-12-08 07:34:44', '2020-12-08 12:36:13', 3, 0, 0, 0, 'N/A', '', 'Dr. Inam Ullah Wazir', 'Research Officer'),
+(82, 811220, 4, 27, 1, 'Nil', '1', 'Nil', 'Female', '4', '0', '2', 3, NULL, 'nill', 'nill', '2020-12-08', '2020-12-08', 1, '2020-12-08', ' Sub-Clinical Mastitis found in the specimen.', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-08 10:18:19', '2020-12-08 15:23:01', 3, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(83, 821220, 4, 27, 1, 'Nil', '2', 'Nil', 'Female', '4', '0', '16', 7, NULL, 'nill', 'nill', '2020-12-08', '2020-12-08', 1, '2020-12-08', ' mstitis', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-08 10:27:40', '2020-12-08 15:30:52', 0, 7, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer'),
+(84, 831220, 4, 27, 1, 'Nil', '1', 'Nil', 'Female', '2', '0', '5', 8, NULL, 'nill', 'nill', '2020-12-08', '2020-12-08', 1, '2020-12-08', ' Mastitis found in two ', 'Nil', NULL, '20', 'Nil', 0, '', NULL, 8, '2020-12-08 10:34:58', '2020-12-08 15:37:07', 8, 0, 0, 0, 'Yes', 'Mastitis', 'Dr. Kamran', 'Research Officer');
 
 -- --------------------------------------------------------
 
@@ -1183,21 +1393,21 @@ CREATE TABLE `testhelp` (
 --
 
 INSERT INTO `testhelp` (`testHelp_id`, `testHelp_name`, `disease_or_research`, `testHelp_fee`, `is_trash`, `created_by`, `created_date`) VALUES
-(1, 'Impression Smear', 'Research', 50, 0, 1, '2020-08-12 03:23:54'),
+(1, 'Impression Smear', 'Disease', 50, 0, 1, '2020-08-12 03:23:54'),
 (2, 'Hematology', 'Disease', 150, 0, 1, '2020-08-12 03:23:54'),
-(3, 'Mastitis', 'Disease', 20, 0, 1, '2020-08-12 03:23:54'),
+(3, 'Mastitis Test', 'Disease', 20, 0, 1, '2020-08-12 03:23:54'),
 (4, 'Culture Sensitivity', 'Disease', 150, 0, 1, '2020-08-12 03:23:54'),
 (5, 'Urine Examination', 'Disease', 50, 0, 1, '2020-08-12 03:23:54'),
-(6, 'MRT (Animal)', 'Disease', 60, 0, 1, '2020-08-12 03:23:54'),
-(7, 'RBPT (Animal)', 'Disease', 200, 0, 1, '2020-08-12 03:23:54'),
-(8, 'SPAT (Human)', 'Disease', 100, 0, 1, '2020-08-12 03:23:54'),
+(6, 'MRT', 'Disease', 100, 0, 1, '2020-08-12 03:23:54'),
+(7, 'RBPT', 'Disease', 100, 0, 1, '2020-08-12 03:23:54'),
+(8, 'SPAT', 'Disease', 100, 0, 1, '2020-08-12 03:23:54'),
 (9, 'Tuberculin Skin Test (TST)', 'Disease', 35, 0, 1, '2020-08-12 03:23:54'),
 (10, 'Water Bacteriology', 'Disease', 200, 0, 2, '2020-09-29 20:18:57'),
-(11, 'Acid Fast Bicilin (AFB for TB)', 'Disease', 25, 0, 2, '2020-10-05 19:47:16'),
-(12, 'INDIRECT ELISA (Human)', 'Disease', 220, 0, 2, '2020-10-28 14:16:43'),
-(13, 'INDIRECT ELISA (Animal)', 'Disease', 320, 0, 2, '2020-10-28 14:16:58'),
-(14, 'PCR (Human)', 'Disease', 120, 0, 2, '2020-10-28 14:17:24'),
-(15, 'PCR (Animal)', 'Disease', 180, 0, 2, '2020-10-28 14:17:41');
+(11, 'AFB Staining Test', 'Disease', 25, 0, 2, '2020-10-05 19:47:16'),
+(12, 'i-ELISA for Brucellosis (Human)', 'Disease', 500, 0, 2, '2020-10-28 14:16:43'),
+(13, 'i-ELISA for Brucellosis (Animal)', 'Disease', 500, 0, 2, '2020-10-28 14:16:58'),
+(14, 'PCR for Brucellosis (Human)', 'Disease', 1000, 0, 2, '2020-10-28 14:17:24'),
+(15, 'PCR for Brucellosis (Animal)', 'Disease', 1000, 0, 2, '2020-10-28 14:17:41');
 
 -- --------------------------------------------------------
 
@@ -1224,19 +1434,24 @@ CREATE TABLE `tests` (
 --
 
 INSERT INTO `tests` (`test_id`, `directorate_id`, `center_station_id`, `section_id`, `lab_id`, `testHelp_id`, `test_fee`, `description`, `is_trash`, `created_by`, `created_date`) VALUES
-(1, 2, 4, 4, 4, 5, 500, 'this is desc of the test', 0, 2, '2020-09-24 07:47:24'),
-(2, 3, 4, 4, 4, 1, 500, 'This is Impression Smear Test', 0, 2, '2020-09-24 07:49:23'),
+(1, 3, 4, 4, 4, 5, 50, 'Urine Examination Test', 0, 2, '2020-09-24 07:47:24'),
+(2, 3, 4, 4, 4, 1, 50, '  This is Impression Smear Test', 0, 2, '2020-09-24 07:49:23'),
 (3, 3, 4, 3, 7, 11, 25, 'Acid Fast Staining Test', 0, 2, '2020-09-29 07:19:35'),
 (4, 3, 4, 1, 5, 3, 20, ' This is Mastitis Tests Records', 0, 2, '2020-09-29 17:17:07'),
-(5, 3, 4, 4, 4, 2, 500, 'Hematology Lab at Pathology & Bacteriology Section, CMB, VRI Peshawar', 0, 2, '2020-10-03 01:27:04'),
-(6, 3, 4, 4, 4, 4, 0, '', 0, 2, '2020-10-16 09:58:06'),
-(7, 2, 1, 5, 2, 8, 100, '  SPAT Test', 0, 2, '2020-10-20 18:53:28'),
-(8, 2, 1, 5, 2, 7, 200, ' RBPT', 0, 2, '2020-10-26 16:22:11'),
-(9, 4, 19, 8, 10, 6, 60, 'this is testing entry', 0, 2, '2020-11-02 13:37:51'),
-(10, 4, 19, 8, 10, 12, 220, 'this is testing entry', 0, 2, '2020-11-02 13:40:42'),
-(11, 4, 19, 8, 10, 13, 320, 'this is testing entry', 0, 2, '2020-11-02 13:41:14'),
-(12, 4, 19, 8, 10, 14, 120, 'this is testing entry', 0, 2, '2020-11-02 13:43:34'),
-(13, 4, 19, 8, 10, 15, 180, 'this is testing entry', 0, 2, '2020-11-02 13:44:08');
+(5, 3, 4, 4, 4, 2, 150, ' Hematology Lab at Pathology & Bacteriology Section, CMB, VRI Peshawar', 0, 2, '2020-10-03 01:27:04'),
+(6, 3, 4, 4, 4, 4, 150, ' ', 0, 2, '2020-10-16 09:58:06'),
+(7, 3, 4, 5, 2, 8, 100, 'SPAT Test for Brucella (for Human Sample)', 0, 2, '2020-10-20 18:53:28'),
+(8, 3, 4, 5, 2, 7, 100, '  RBPT Test for Brucella (for Animal Blood Sample)', 0, 2, '2020-10-26 16:22:11'),
+(9, 3, 4, 5, 2, 6, 100, 'Brucellosis Laboratory', 0, 2, '2020-11-02 13:37:51'),
+(10, 3, 4, 5, 2, 12, 500, 'i-ELISA Test for Brucellosis (for Human Sample)', 0, 2, '2020-11-02 13:40:42'),
+(11, 3, 4, 5, 2, 13, 500, 'i-ELISA Test for Brucellosis (for Animal Sample)', 0, 2, '2020-11-02 13:41:14'),
+(12, 3, 4, 5, 2, 14, 1000, 'PCR for Brucellosis Test (for Human Sample)', 0, 2, '2020-11-02 13:43:34'),
+(13, 3, 4, 5, 2, 15, 1000, 'PCR for Brucellosis Test (for Animal Sample)', 0, 2, '2020-11-02 13:44:08'),
+(14, 3, 7, 9, 11, 1, 0, 'Impression Smear Test', 0, 2, '2020-11-26 22:33:56'),
+(15, 3, 7, 9, 11, 1, 100, 'Impression Smear Test', 0, 2, '2020-11-26 22:34:10'),
+(16, 3, 7, 9, 11, 3, 20, 'Mastitis Test', 0, 2, '2020-11-26 22:34:59'),
+(17, 3, 7, 9, 11, 3, 20, 'Mastitis Test', 0, 2, '2020-11-26 22:35:18'),
+(18, 3, 7, 10, 13, 8, 100, 'SPAT Test for Brucella (for Human Sample)', 0, 2, '2020-11-27 10:55:20');
 
 -- --------------------------------------------------------
 
@@ -1258,64 +1473,112 @@ CREATE TABLE `test_samples` (
 --
 
 INSERT INTO `test_samples` (`test_sample_id`, `test_id`, `sample_id`, `is_trash`, `created_by`, `created_date`) VALUES
-(1, 1, 5, 0, 2, '2020-09-24 07:47:24'),
 (5, 3, 1, 0, NULL, '2020-10-02 06:39:54'),
 (6, 3, 7, 0, NULL, '2020-10-02 06:39:54'),
-(8, 5, 1, 0, 2, '2020-10-03 01:27:04'),
-(9, 5, 2, 0, 2, '2020-10-03 01:27:04'),
-(10, 5, 3, 0, 2, '2020-10-03 01:27:04'),
-(11, 5, 4, 0, 2, '2020-10-03 01:27:04'),
-(12, 5, 5, 0, 2, '2020-10-03 01:27:04'),
-(13, 5, 6, 0, 2, '2020-10-03 01:27:04'),
-(14, 5, 7, 0, 2, '2020-10-03 01:27:04'),
 (15, 4, 1, 0, NULL, '2020-10-06 08:30:33'),
-(16, 6, 1, 0, 2, '2020-10-16 09:58:06'),
-(17, 6, 2, 0, 2, '2020-10-16 09:58:06'),
-(18, 6, 3, 0, 2, '2020-10-16 09:58:06'),
-(19, 6, 4, 0, 2, '2020-10-16 09:58:06'),
-(20, 6, 5, 0, 2, '2020-10-16 09:58:06'),
-(21, 6, 6, 0, 2, '2020-10-16 09:58:06'),
-(22, 6, 7, 0, 2, '2020-10-16 09:58:06'),
-(23, 6, 8, 0, 2, '2020-10-16 09:58:06'),
-(24, 6, 9, 0, 2, '2020-10-16 09:58:06'),
-(25, 6, 10, 0, 2, '2020-10-16 09:58:06'),
-(26, 6, 11, 0, 2, '2020-10-16 09:58:06'),
-(27, 6, 12, 0, 2, '2020-10-16 09:58:06'),
-(28, 6, 13, 0, 2, '2020-10-16 09:58:06'),
-(29, 6, 14, 0, 2, '2020-10-16 09:58:06'),
-(32, 2, 1, 0, NULL, '2020-10-23 00:25:39'),
-(33, 2, 2, 0, NULL, '2020-10-23 00:25:39'),
-(34, 2, 3, 0, NULL, '2020-10-23 00:25:39'),
-(35, 2, 4, 0, NULL, '2020-10-23 00:25:39'),
-(36, 2, 5, 0, NULL, '2020-10-23 00:25:39'),
-(37, 2, 6, 0, NULL, '2020-10-23 00:25:39'),
-(38, 2, 7, 0, NULL, '2020-10-23 00:25:39'),
-(39, 2, 8, 0, NULL, '2020-10-23 00:25:39'),
-(40, 2, 9, 0, NULL, '2020-10-23 00:25:39'),
-(41, 2, 10, 0, NULL, '2020-10-23 00:25:39'),
-(42, 2, 11, 0, NULL, '2020-10-23 00:25:39'),
-(43, 2, 12, 0, NULL, '2020-10-23 00:25:39'),
-(44, 2, 13, 0, NULL, '2020-10-23 00:25:39'),
-(45, 2, 14, 0, NULL, '2020-10-23 00:25:39'),
-(46, 2, 15, 0, NULL, '2020-10-23 00:25:39'),
-(47, 2, 16, 0, NULL, '2020-10-23 00:25:39'),
-(60, 8, 1, 0, NULL, '2020-10-28 09:28:58'),
-(61, 8, 4, 0, NULL, '2020-10-28 09:28:58'),
-(62, 8, 15, 0, NULL, '2020-10-28 09:28:58'),
-(63, 8, 16, 0, NULL, '2020-10-28 09:28:58'),
-(64, 8, 17, 0, NULL, '2020-10-28 09:28:58'),
-(65, 8, 18, 0, NULL, '2020-10-28 09:28:58'),
-(66, 7, 1, 0, NULL, '2020-10-28 09:29:11'),
-(67, 7, 4, 0, NULL, '2020-10-28 09:29:11'),
-(68, 7, 15, 0, NULL, '2020-10-28 09:29:11'),
-(69, 7, 16, 0, NULL, '2020-10-28 09:29:11'),
-(70, 7, 17, 0, NULL, '2020-10-28 09:29:11'),
-(71, 7, 18, 0, NULL, '2020-10-28 09:29:11'),
-(72, 9, 1, 0, 2, '2020-11-02 13:37:51'),
-(73, 10, 4, 0, 2, '2020-11-02 13:40:42'),
-(74, 11, 1, 0, 2, '2020-11-02 13:41:14'),
-(75, 12, 4, 0, 2, '2020-11-02 13:43:34'),
-(76, 13, 4, 0, 2, '2020-11-02 13:44:08');
+(93, 2, 1, 0, NULL, '2020-11-17 10:20:42'),
+(94, 2, 2, 0, NULL, '2020-11-17 10:20:42'),
+(95, 2, 3, 0, NULL, '2020-11-17 10:20:42'),
+(96, 2, 4, 0, NULL, '2020-11-17 10:20:42'),
+(97, 2, 5, 0, NULL, '2020-11-17 10:20:42'),
+(98, 2, 6, 0, NULL, '2020-11-17 10:20:42'),
+(99, 2, 7, 0, NULL, '2020-11-17 10:20:42'),
+(100, 2, 8, 0, NULL, '2020-11-17 10:20:42'),
+(101, 2, 9, 0, NULL, '2020-11-17 10:20:42'),
+(102, 2, 10, 0, NULL, '2020-11-17 10:20:42'),
+(103, 2, 11, 0, NULL, '2020-11-17 10:20:42'),
+(104, 2, 12, 0, NULL, '2020-11-17 10:20:42'),
+(105, 2, 13, 0, NULL, '2020-11-17 10:20:42'),
+(106, 2, 14, 0, NULL, '2020-11-17 10:20:42'),
+(107, 2, 15, 0, NULL, '2020-11-17 10:20:42'),
+(108, 2, 16, 0, NULL, '2020-11-17 10:20:42'),
+(109, 6, 1, 0, NULL, '2020-11-17 10:30:15'),
+(110, 6, 2, 0, NULL, '2020-11-17 10:30:15'),
+(111, 6, 3, 0, NULL, '2020-11-17 10:30:15'),
+(112, 6, 4, 0, NULL, '2020-11-17 10:30:15'),
+(113, 6, 5, 0, NULL, '2020-11-17 10:30:15'),
+(114, 6, 6, 0, NULL, '2020-11-17 10:30:15'),
+(115, 6, 7, 0, NULL, '2020-11-17 10:30:15'),
+(116, 6, 8, 0, NULL, '2020-11-17 10:30:15'),
+(117, 6, 9, 0, NULL, '2020-11-17 10:30:15'),
+(118, 6, 10, 0, NULL, '2020-11-17 10:30:15'),
+(119, 6, 11, 0, NULL, '2020-11-17 10:30:15'),
+(120, 6, 12, 0, NULL, '2020-11-17 10:30:15'),
+(121, 6, 13, 0, NULL, '2020-11-17 10:30:15'),
+(122, 6, 14, 0, NULL, '2020-11-17 10:30:15'),
+(123, 9, 1, 0, NULL, '2020-11-23 08:06:11'),
+(132, 11, 1, 0, NULL, '2020-11-23 08:11:55'),
+(133, 11, 4, 0, NULL, '2020-11-23 08:11:55'),
+(134, 11, 15, 0, NULL, '2020-11-23 08:11:55'),
+(135, 11, 16, 0, NULL, '2020-11-23 08:11:55'),
+(136, 11, 17, 0, NULL, '2020-11-23 08:11:55'),
+(137, 11, 18, 0, NULL, '2020-11-23 08:11:55'),
+(138, 10, 1, 0, NULL, '2020-11-23 08:13:35'),
+(139, 10, 4, 0, NULL, '2020-11-23 08:13:35'),
+(140, 10, 15, 0, NULL, '2020-11-23 08:13:35'),
+(141, 10, 16, 0, NULL, '2020-11-23 08:13:35'),
+(142, 10, 17, 0, NULL, '2020-11-23 08:13:35'),
+(143, 10, 18, 0, NULL, '2020-11-23 08:13:35'),
+(144, 13, 1, 0, NULL, '2020-11-23 08:15:04'),
+(145, 13, 4, 0, NULL, '2020-11-23 08:15:04'),
+(146, 13, 15, 0, NULL, '2020-11-23 08:15:04'),
+(147, 13, 16, 0, NULL, '2020-11-23 08:15:04'),
+(148, 13, 17, 0, NULL, '2020-11-23 08:15:04'),
+(149, 13, 18, 0, NULL, '2020-11-23 08:15:04'),
+(150, 12, 1, 0, NULL, '2020-11-23 08:16:17'),
+(151, 12, 4, 0, NULL, '2020-11-23 08:16:17'),
+(152, 12, 15, 0, NULL, '2020-11-23 08:16:17'),
+(153, 12, 17, 0, NULL, '2020-11-23 08:16:17'),
+(154, 12, 18, 0, NULL, '2020-11-23 08:16:17'),
+(155, 7, 4, 0, NULL, '2020-11-23 08:19:06'),
+(156, 8, 4, 0, NULL, '2020-11-23 08:20:11'),
+(157, 1, 5, 0, NULL, '2020-11-23 08:21:33'),
+(158, 5, 1, 0, NULL, '2020-11-23 08:22:31'),
+(159, 5, 2, 0, NULL, '2020-11-23 08:22:31'),
+(160, 5, 3, 0, NULL, '2020-11-23 08:22:31'),
+(161, 5, 4, 0, NULL, '2020-11-23 08:22:31'),
+(162, 5, 5, 0, NULL, '2020-11-23 08:22:31'),
+(163, 5, 6, 0, NULL, '2020-11-23 08:22:31'),
+(164, 5, 7, 0, NULL, '2020-11-23 08:22:31'),
+(165, 14, 1, 0, 2, '2020-11-26 22:33:56'),
+(166, 14, 2, 0, 2, '2020-11-26 22:33:56'),
+(167, 14, 3, 0, 2, '2020-11-26 22:33:56'),
+(168, 14, 4, 0, 2, '2020-11-26 22:33:56'),
+(169, 14, 5, 0, 2, '2020-11-26 22:33:56'),
+(170, 14, 6, 0, 2, '2020-11-26 22:33:56'),
+(171, 14, 7, 0, 2, '2020-11-26 22:33:56'),
+(172, 14, 8, 0, 2, '2020-11-26 22:33:56'),
+(173, 14, 9, 0, 2, '2020-11-26 22:33:56'),
+(174, 14, 10, 0, 2, '2020-11-26 22:33:56'),
+(175, 14, 11, 0, 2, '2020-11-26 22:33:56'),
+(176, 14, 12, 0, 2, '2020-11-26 22:33:56'),
+(177, 14, 13, 0, 2, '2020-11-26 22:33:56'),
+(178, 14, 14, 0, 2, '2020-11-26 22:33:56'),
+(179, 14, 15, 0, 2, '2020-11-26 22:33:56'),
+(180, 14, 16, 0, 2, '2020-11-26 22:33:56'),
+(181, 14, 17, 0, 2, '2020-11-26 22:33:56'),
+(182, 14, 18, 0, 2, '2020-11-26 22:33:56'),
+(183, 15, 1, 0, 2, '2020-11-26 22:34:10'),
+(184, 15, 2, 0, 2, '2020-11-26 22:34:10'),
+(185, 15, 3, 0, 2, '2020-11-26 22:34:10'),
+(186, 15, 4, 0, 2, '2020-11-26 22:34:10'),
+(187, 15, 5, 0, 2, '2020-11-26 22:34:10'),
+(188, 15, 6, 0, 2, '2020-11-26 22:34:10'),
+(189, 15, 7, 0, 2, '2020-11-26 22:34:10'),
+(190, 15, 8, 0, 2, '2020-11-26 22:34:10'),
+(191, 15, 9, 0, 2, '2020-11-26 22:34:10'),
+(192, 15, 10, 0, 2, '2020-11-26 22:34:10'),
+(193, 15, 11, 0, 2, '2020-11-26 22:34:10'),
+(194, 15, 12, 0, 2, '2020-11-26 22:34:10'),
+(195, 15, 13, 0, 2, '2020-11-26 22:34:10'),
+(196, 15, 14, 0, 2, '2020-11-26 22:34:10'),
+(197, 15, 15, 0, 2, '2020-11-26 22:34:10'),
+(198, 15, 16, 0, 2, '2020-11-26 22:34:10'),
+(199, 15, 17, 0, 2, '2020-11-26 22:34:10'),
+(200, 15, 18, 0, 2, '2020-11-26 22:34:10'),
+(201, 16, 1, 0, 2, '2020-11-26 22:34:59'),
+(202, 17, 1, 0, 2, '2020-11-26 22:35:18'),
+(203, 18, 4, 0, 2, '2020-11-27 10:55:20');
 
 -- --------------------------------------------------------
 
@@ -1368,6 +1631,16 @@ CREATE TABLE `urine_examination` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `urine_examination`
+--
+
+INSERT INTO `urine_examination` (`urine_id`, `testDetails_id`, `colour`, `appearance`, `leukocytes`, `specific_gravity`, `glucose`, `protein`, `nitrite`, `urobilinogen`, `ketone_bodies`, `yeastFungi`, `bilirubin`, `ph`, `blood`, `pus_cell`, `epithelial_cell`, `rb_cs`, `casts`, `crystals`, `amorphous`, `parasites`, `bacteria`, `created_by`, `created_date`) VALUES
+(1, 17, 'Brown', 'Transparent', 'Small', '3.788', 'Moderate', '100mg/dL', 'Positive', '4', 'Small', 'Nil', 'Moderate', 7.8, 'Hemolyzed', '2', '5', '3', 'Nil', 'Nil', 'Nil', 'Nil', 'Nil', 9, '2020-11-17 10:38:20'),
+(2, 34, 'Red', 'Bloody', 'Small', '0.568', 'Trace', 'Trace', 'Positive', '2', 'Trace', 'Nil', 'Small', 8.58, 'Non-Hemolyzed', '2-3', '5', '2', '3', '1', 'Nil', 'Nil', 'Nil', 9, '2020-11-23 07:17:03'),
+(3, 66, 'Red', 'Bloody', 'Small', '0.598', 'Large', '100mg/dL', 'Positive', '2', 'Small', 'Nil', 'Small', 8.95, 'Small', '2-3', '5', '2', '3', '1', 'Nil', 'Nil', 'Nil', 9, '2020-12-03 06:08:25'),
+(4, 71, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2020-12-03 10:37:01');
+
 -- --------------------------------------------------------
 
 --
@@ -1400,12 +1673,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `directorate_id`, `center_station_id`, `section_id`, `lab_id`, `user_name`, `user_email`, `user_contact`, `user_password`, `user_role`, `designation`, `gender`, `user_img`, `is_block`, `is_active`, `is_trash`, `created_date`, `created_by`) VALUES
-(2, 4, 19, 8, 2, 'Mr. Arshad Ali Durrani', 'admin@gmail.com', '0315-9393788', '$2y$10$k0JniyM3CaDf7cQYnd.u6.QjGnACjhhEWAiUS.EUBwjJgDP4sQJmK', 1, 'Administrator', 'Male', '', 0, 1, 0, '2020-07-04 12:01:21', 1),
+(2, 4, 19, 8, 2, 'Mr. Arshad Ali Durrani', 'admin@gmail.com', '0315-9393788', '$2y$10$k0JniyM3CaDf7cQYnd.u6.QjGnACjhhEWAiUS.EUBwjJgDP4sQJmK', 1, 'Administrator', 'Male', '43China-Southern-Airlines-Cabin-Crew.jpg', 0, 1, 0, '2020-07-04 12:01:21', 1),
 (6, 2, 4, 4, NULL, 'Dr Din Muhammad', 'ddm@gmail.com', '1233-3333333', '$2y$10$V0NJcM1gLHb43pjARvwIgupZadclxyS0W31eeFGO.5LfalaKRLjzG', 6, 'SRO', 'Male', '10airhosttess.jpg', 0, 1, 1, '2020-09-24 07:54:10', 2),
 (7, 3, 4, 3, NULL, 'Dr. Maleeha Anwar', 'tbvph.cmb.vripsh@gmail.com', '1111-1111111', '$2y$10$ay6FDWPJnUAMY2IX5KvgRe8Nm6orKKlFAeQ2fi8vXo3C1t77DuBxK', 6, 'Research Officer (B-17)', 'Female', '34download.png', 0, 1, 0, '2020-09-29 07:16:05', 2),
 (8, 3, 4, 1, NULL, 'Dr. Kamran', 'mastitis.cmb.vripsh@gmail.com', '0000-0000000', '$2y$10$1XvIWnYwhxOUvt.I8wzk1OQBkabnw5LLIDnFDUvAEunbIVfilu2R6', 6, 'Research Officer (B-17)', 'Male', '', 0, 1, 0, '2020-10-02 07:09:58', 2),
 (9, 3, 4, 4, NULL, 'Dr. Inam Ullah Wazir', 'path&bac.cmb.vripsh@gmail.com', '0000-0000000', '$2y$10$ktU5O3KDY9UhSHM4MuXH3ekCPS/hrUAMlIDPvL9LPLGCwZuQ6boT.', 6, 'Research Officer (B-17)', 'Male', '56pic3.jpg', 0, 1, 0, '2020-10-03 01:37:50', 2),
-(10, 3, 4, 3, NULL, 'Dr. Maleeha ', 'tb.cmb.vripsh@gmail.com', '5555-5555555', '$2y$10$5rEpQJjOrAADZbtAEO2rm.B0AbssIb/LM/ohEk8JwNJJcQNB4ss.y', 6, 'Research Officer (B-17)', 'Female', '', 0, 1, 1, '2020-10-05 09:52:00', 2);
+(10, 3, 4, 3, NULL, 'Dr. Maleeha ', 'tb.cmb.vripsh@gmail.com', '5555-5555555', '$2y$10$5rEpQJjOrAADZbtAEO2rm.B0AbssIb/LM/ohEk8JwNJJcQNB4ss.y', 6, 'Research Officer (B-17)', 'Female', '', 0, 1, 1, '2020-10-05 09:52:00', 2),
+(11, 3, 4, 5, NULL, 'Dr. Muhammad Shahid', 'brucella.cmb.vripsh@gmail.com', '0000-0000000', '$2y$10$3wa73dUKwm3QsHf0gPG.f.b9NxxETk19x3jpf1jNKN9JHE.AzC2ki', 6, 'Research Officer (B-17)', 'Male', '', 0, 1, 0, '2020-11-23 08:03:15', 2),
+(12, 3, 7, 9, NULL, 'Mr. Murad Ali', 'vrdicabt@gmail.com', '0000-0000000', '$2y$10$AJ4kJqY6wQVEUQvVkkYpaOg/T7XWljmBZAWOVuAHgUWYR6wfopw.y', 6, 'Computer Operator', 'Male', '', 0, 1, 0, '2020-11-26 22:38:27', 2);
 
 -- --------------------------------------------------------
 
@@ -1431,7 +1706,9 @@ INSERT INTO `user_labs` (`ul_id`, `ul_user_id`, `ul_lab_id`, `created_date`) VAL
 (15, 10, 7, '2020-10-05 02:54:59'),
 (17, 2, 10, '2020-10-05 23:12:10'),
 (18, 7, 7, '2020-10-05 23:18:34'),
-(22, 9, 4, '2020-10-09 00:12:56');
+(22, 9, 4, '2020-10-09 00:12:56'),
+(23, 11, 2, '2020-11-23 13:03:15'),
+(24, 12, 11, '2020-11-27 03:38:27');
 
 -- --------------------------------------------------------
 
@@ -1712,7 +1989,7 @@ ALTER TABLE `water_bacteriology`
 -- AUTO_INCREMENT for table `acid_fast_staining`
 --
 ALTER TABLE `acid_fast_staining`
-  MODIFY `afs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `afs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `antibiotics`
@@ -1724,7 +2001,7 @@ ALTER TABLE `antibiotics`
 -- AUTO_INCREMENT for table `breeds`
 --
 ALTER TABLE `breeds`
-  MODIFY `breed_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `breed_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `brucella_animal_ind`
@@ -1748,13 +2025,13 @@ ALTER TABLE `center_station`
 -- AUTO_INCREMENT for table `client_info`
 --
 ALTER TABLE `client_info`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `culture_sensitivity`
 --
 ALTER TABLE `culture_sensitivity`
-  MODIFY `culture_sensitivity_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `culture_sensitivity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `directorates`
@@ -1772,37 +2049,37 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `elisa_animal`
 --
 ALTER TABLE `elisa_animal`
-  MODIFY `elisa_animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `elisa_animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `elisa_human`
 --
 ALTER TABLE `elisa_human`
-  MODIFY `elisa_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `elisa_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `haematology`
 --
 ALTER TABLE `haematology`
-  MODIFY `haematology_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `haematology_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `impression_smear`
 --
 ALTER TABLE `impression_smear`
-  MODIFY `impression_smear_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `impression_smear_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `labs`
 --
 ALTER TABLE `labs`
-  MODIFY `lab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `lab_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `mastitis`
 --
 ALTER TABLE `mastitis`
-  MODIFY `mastitis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mastitis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `modules`
@@ -1814,25 +2091,25 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `mrt`
 --
 ALTER TABLE `mrt`
-  MODIFY `mrt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mrt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pcr_animal`
 --
 ALTER TABLE `pcr_animal`
-  MODIFY `pcr_animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pcr_animal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pcr_human`
 --
 ALTER TABLE `pcr_human`
-  MODIFY `pcr_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pcr_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rbpt`
 --
 ALTER TABLE `rbpt`
-  MODIFY `rbpt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rbpt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1856,19 +2133,19 @@ ALTER TABLE `samples`
 -- AUTO_INCREMENT for table `sectionhelp`
 --
 ALTER TABLE `sectionhelp`
-  MODIFY `sectionHelp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sectionHelp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
-  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `spat_human`
 --
 ALTER TABLE `spat_human`
-  MODIFY `spat_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `spat_human_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_and_vph`
@@ -1886,7 +2163,7 @@ ALTER TABLE `tehsil`
 -- AUTO_INCREMENT for table `testdetails`
 --
 ALTER TABLE `testdetails`
-  MODIFY `testDetails_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `testDetails_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `testhelp`
@@ -1898,13 +2175,13 @@ ALTER TABLE `testhelp`
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `test_samples`
 --
 ALTER TABLE `test_samples`
-  MODIFY `test_sample_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `test_sample_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT for table `tuberculin_skin_test`
@@ -1916,19 +2193,19 @@ ALTER TABLE `tuberculin_skin_test`
 -- AUTO_INCREMENT for table `urine_examination`
 --
 ALTER TABLE `urine_examination`
-  MODIFY `urine_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `urine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_labs`
 --
 ALTER TABLE `user_labs`
-  MODIFY `ul_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ul_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `water_bacteriology`
