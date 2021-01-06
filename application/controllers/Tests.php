@@ -339,6 +339,7 @@ if(empty($res))
                 'prev_mastatis_rec_of_farm'      => $this->input->post('prev_mastatis_rec_of_farm'),
                 'prac_mastatis_test_at_farm'     => $this->input->post('prac_mastatis_test_at_farm'),
                 'refer_to_bacteriology_sec_for'  => $this->input->post('refer_to_bacteriology_sec_for'),
+                'result_status'                  => '',
                 'created_by'                     => $this->session->userdata('user')['user_id'],
             ];
          $this->API_m->create('mastitis',$Mastitis);
@@ -688,6 +689,10 @@ if(empty($res))
             $mastitis_id   = $this->input->post('mastitis_id');
             $Mastitis = [
                 'testDetails_id'                => $testDetails_id,
+                'result_status'                 => $this->input->post('result_status'),
+                'neg_ph'                        => $this->input->post('neg_ph'),
+                'neg_ssc'                       => $this->input->post('neg_ssc'),
+                'neg_gross_appearance'          => $this->input->post('neg_gross_appearance'),
                 'refer_to_bacteriology_sec_for' => $this->input->post('refer_to_bacteriology_sec_for'),
                 'clinical_or_sub'               => $this->input->post('clinical_or_sub'),
                 'composite_or_ind'              => $this->input->post('composite_or_ind'),

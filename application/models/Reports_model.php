@@ -5,7 +5,7 @@ class Reports_model extends CI_Model {
 	public function getDistrictTehsilWise() {
 
 		$district_id = $this->input->post('district_id');
-		$tehsil_id = $this->input->post('tehsil_id');
+		$tehsil_id   = $this->input->post('tehsil_id');
 
 		$this->db->select('*');
 		$this->db->from('client_info');
@@ -814,6 +814,189 @@ public function thirdQuartor_t() {
 			->get();
 		return $query16->num_rows();
 	}
+
+
+	public function get_FilterDetails($condition){
+            $res       = []; 
+            $query1    = [];
+$role_id               = $this->session->userdata('user')['role'];
+$lab_id                = $this->session->userdata('user')['lab_id'];
+$permissions           = $this->User_m->getRecordWhere('role_permissions',['role_id' => $role_id]); 
+if($permissions[2]->module_id == 3 && $permissions[2]->show_all==1)
+{
+                $query1  =  $this->db->select("*")
+                                    ->from("testdetails")
+                                    ->join("client_info",'client_info.client_id=testdetails.client_id')
+                                    ->join("districts", 'districts.district_id=client_info.district_id')
+                                    ->join("cattles",'cattles.cattle_id=testdetails.cattle_name')
+                                    ->join("breeds",'breeds.breed_id=testdetails.cattle_breed')
+                                    ->join("tests",'tests.test_id=testdetails.test_id')
+                                    ->join('testhelp as th','th.testHelp_id=tests.testHelp_id')
+                                    ->join("samples",'samples.sample_id=testdetails.sample_id')
+                                    ->join("tehsil", 'tehsil.tehsil_id=client_info.tehsil_id')
+                                    ->order_by('testdetails.testdetails_id','DESC')
+                                    ->where($condition)
+                                    ->get()->result();
+}else if($permissions[2]->module_id == 3 && $permissions[2]->show_lab_by==1)
+{
+                 $query1  =  $this->db->select("*")
+                                    ->from("testdetails")
+                                    ->join("client_info",'client_info.client_id=testdetails.client_id')
+                                    ->join("districts", 'districts.district_id=client_info.district_id')
+                                    ->join("cattles",'cattles.cattle_id=testdetails.cattle_name')
+                                    ->join("breeds",'breeds.breed_id=testdetails.cattle_breed')
+                                    ->join("tests",'tests.test_id=testdetails.test_id')
+                                    ->join('testhelp as th','th.testHelp_id=tests.testHelp_id')
+                                    ->join("samples",'samples.sample_id=testdetails.sample_id')
+                                    ->join("tehsil", 'tehsil.tehsil_id=client_info.tehsil_id')
+                                    ->where('tests.lab_id',$lab_id)
+                                    ->where($condition)
+                                    ->order_by('testdetails.testdetails_id','DESC')
+                                    ->get()->result();
+}else if($permissions[2]->module_id == 3 && $permissions[2]->show_created_by==1)
+{
+                $query1  =  $this->db->select("*")
+                                    ->from("testdetails")
+                                    ->join("client_info",'client_info.client_id=testdetails.client_id')
+                                    ->join("districts", 'districts.district_id=client_info.district_id')
+                                    ->join("cattles",'cattles.cattle_id=testdetails.cattle_name')
+                                    ->join("breeds",'breeds.breed_id=testdetails.cattle_breed')
+                                    ->join("tests",'tests.test_id=testdetails.test_id')
+                                    ->join('testhelp as th','th.testHelp_id=tests.testHelp_id')
+                                    ->join("samples",'samples.sample_id=testdetails.sample_id')
+                                    ->join("tehsil", 'tehsil.tehsil_id=client_info.tehsil_id')
+                                    ->where('testdetails.created_by',$this->session->userdata('user')['user_id'])
+                                    ->order_by('testdetails.testdetails_id','DESC')
+                                    ->where($condition)
+                                    ->get()->result();
+}else if($permissions[2]->module_id == 3 && $permissions[2]->show_none==1)
+{
+               $query1    = [];
+}
+
+            if(!empty($query1))
+            {
+                foreach($query1 as $q)
+                 {
+                    if($q->testHelp_id==1)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("impression_smear")
+                                                        ->where("impression_smear.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }else if($q->testHelp_id==10)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("water_bacteriology")
+                                                        ->where("water_bacteriology.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }else if($q->testHelp_id==11)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("acid_fast_staining")
+                                                        ->where("acid_fast_staining.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }
+                    else if($q->testHelp_id==2)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("haematology")
+                                                        ->where("haematology.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }
+                    else if($q->testHelp_id==3)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("mastitis")
+                                                        ->where("mastitis.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }
+                    else if($q->testHelp_id==4)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("culture_sensitivity")
+                                                        ->where("culture_sensitivity.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    }
+                    else if($q->testHelp_id==5)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("urine_examination")
+                                                        ->where("urine_examination.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    } else if($q->testHelp_id==6)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("mrt")
+                                                        ->where("mrt.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    } else if($q->testHelp_id==7)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                        ->from("rbpt")
+                                                        ->where("rbpt.testDetails_id",$q->testDetails_id)
+                                                        ->get()->row();
+                    } else if($q->testHelp_id==8)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                ->from("spat_human")
+                                                                ->where("spat_human.testDetails_id",$q->testDetails_id)
+                                                                ->get()->row();
+                    }else if($q->testHelp_id==9)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                    ->from("tuberculin_skin_test")
+                                                                    ->where("tuberculin_skin_test.testDetails_id",$q->testDetails_id)
+                                                                    ->get()->row();
+                    }else if($q->testHelp_id==12)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                    ->from("elisa_human")
+                                                                    ->where("elisa_human.testDetails_id",$q->testDetails_id)
+                                                                    ->get()->row();
+                    }else if($q->testHelp_id==13)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                    ->from("elisa_animal")
+                                                                    ->where("elisa_animal.testDetails_id",$q->testDetails_id)
+                                                                    ->get()->row();
+                    }else if($q->testHelp_id==14)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                    ->from("pcr_human")
+                                                                    ->where("pcr_human.testDetails_id",$q->testDetails_id)
+                                                                    ->get()->row();
+                    }else if($q->testHelp_id==15)
+                    {
+                        $res[$q->testDetails_id]['testDetails'] = $q;
+                        $res[$q->testDetails_id]['testType']    = $this->db->select("*")
+                                                                    ->from("pcr_animal")
+                                                                    ->where("pcr_animal.testDetails_id",$q->testDetails_id)
+                                                                    ->get()->row();
+                    }
+
+                 }
+                    return $res;
+            }
+                 
+
+        }
+
+
 
 }
 

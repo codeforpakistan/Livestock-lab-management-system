@@ -84,7 +84,8 @@ date_default_timezone_set('Asia/Karachi');
               <thead>
                 <tr class="bg-success">
       <th>tracking#</th>
-      <th>Farmer/Owner</th>
+      <th>Source Type</th>
+      <th>Source Name</th>
       <th>Contact</th>
       <th>District</th>
       <th>Tehsil</th>
@@ -146,7 +147,7 @@ date_default_timezone_set('Asia/Karachi');
       <td><?=  number_format($rec['testDetails']->test_total_fee,2);         ?></td>
        <td>
                       <?php 
-                         if($rec['testDetails']->testHelp_id==6 
+                         if($rec['testDetails']->testHelp_id==6   $rec['testDetails']->testHelp_id==3 
                            || $rec['testDetails']->testHelp_id==7 ||  $rec['testDetails']->testHelp_id==8
                            || $rec['testDetails']->testHelp_id==12 || $rec['testDetails']->testHelp_id==13 
                            || $rec['testDetails']->testHelp_id==14 || $rec['testDetails']->testHelp_id==15)

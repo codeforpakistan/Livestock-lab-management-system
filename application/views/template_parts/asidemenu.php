@@ -520,7 +520,7 @@ $testtypereports        = '';
               <li class="nav-item">
                 <a href="<?= base_url('Reports/districtlabsreports') ?>" class="nav-link <?= $districtlabsreports; ?> ">
                   <i class="fa fa-list-alt nav-icon"></i>
-                  <p>Distric Wise Lab Report</p>
+                  <p>District Wise Lab Report</p>
                 </a>
               </li> 
                 <!-- <li class="nav-item">

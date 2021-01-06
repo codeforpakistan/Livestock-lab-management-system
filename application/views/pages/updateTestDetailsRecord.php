@@ -272,15 +272,49 @@ date_default_timezone_set('Asia/Karachi');
                     {
                 ?>
           <input type="hidden" name="mastitis_id" value="<?= $rec['testType']->mastitis_id; ?>">
+          <div class="row">
+             <div class="col-sm-3 form-group">
+                   <label>Result Status</label>
+                     <select class="form-control NegResult_status" name="result_status" required>
+                       <option value="">-select-</option>
+                       <option value="Negative">Negative</option>
+                       <option value="Positive">Positive</option>
+                     </select>
+              </div>
+               <div class="col-sm-3 form-group negStatus">
+                   <label>PH:</label>
+                     <input type="number" name="neg_ph" value="0.00"  class="form-control">
+              </div>
+               <div class="col-sm-3 form-group negStatus">
+                   <label>S.C.C</label>
+                    <input type="number" name="neg_ssc" class="form-control">
+              </div>
+               <div class="col-sm-3 form-group negStatus">
+                   <label>Gross Appearance</label>
+                       <select name="neg_gross_appearance" class="form-control clinical_gp_val">
+                        <option value="">-select-</option>
+                        <option value="Beads">Beads</option>
+                        <option value="Clots">Clots</option>
+                        <option value="Bloody">Bloody</option>
+                        <option value="Yellowish">Yellowish</option>
+                        <option value="Greenish">Greenish</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Other">Other</option>
+                      </select>
+              </div>
+          </div>
         <div class="row" >
+               
                 <hr>
-                <div class="col-sm-4 form-group">
+                <div class="col-sm-4 form-group clinical_or_sub">
+                  <h5>Please select the Mastitis Type?</h5>
                    <label>
                     Clinical
                     <input type="radio" name="clinical_or_sub"  value="Clinical" class="clinical" checked>
                   </label>
                 </div>  
-                <div class="col-sm-4 form-group">
+                <div class="col-sm-4 form-group clinical_or_sub">
+                   <h5>&nbsp;&nbsp;</h5>
                  <label>
                    Sub Clinical
                     <input type="radio" name="clinical_or_sub" value="Sub Clinical"  class="sub_clinical">
@@ -289,14 +323,16 @@ date_default_timezone_set('Asia/Karachi');
                 <div class="col-sm-4"></div>
                 <hr>
                  <div class="col-sm-4 composite_or_ind form-group">
+                <h5>Please select Source of milk?</h5>
                    <label>
-                    Composite
+                    Composite Milk
                     <input type="radio" name="composite_or_ind" value="Composite" class="compositeVal compositeInd" >
                   </label>
                 </div>  
                 <div class="col-sm-4 composite_or_ind form-group">
+                  <h5>&nbsp;&nbsp;</h5>
                  <label>
-                   Individual
+                   Individual Milk
                     <input type="radio" name="composite_or_ind" value="Individual" class="individualVal compositeInd">
                   </label>
                 </div>
@@ -328,14 +364,14 @@ date_default_timezone_set('Asia/Karachi');
                       </label>
                     </div> 
                 <!-- </div>   -->
-                <div class="col-sm-4 mastitisLabel form-group">
+                <div class="col-sm-4 mastitisLabel  clinical_or_sub form-group">
                   <label>Mastitis:</label>
                   Clinical Mastitis
                 </div>  
-                <div class="col-sm-3 clinical_gp form-group">
+                <div class="col-sm-3 clinical_gp form-group clinical_or_sub">
                   <label class="clinical_gpLabel">Gross Appearance:</label>
                 </div>    
-                <div class="col-sm-3 clinical_gp form-group">
+                <div class="col-sm-3 clinical_gp clinical_or_sub form-group">
                    <select name="clinical_gross_appearance" class="form-control clinical_gp_val">
                       <option value="">-select-</option>
                       <option value="Beads">Beads</option>
@@ -369,7 +405,7 @@ date_default_timezone_set('Asia/Karachi');
                               <option value="Severe">Severe&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+++ </option>
                             </select>
                           </td>
-                          <td><input type="number" name="milk_ph" class="form-control"></td>
+                          <td><input type="number" name="milk_ph" value="0.00" class="form-control"></td>
                           <td><input type="number" name="s_c_c" class="form-control"></td>
                           <td>
                             <select name="gross_appearance" class="form-control">
@@ -397,7 +433,7 @@ date_default_timezone_set('Asia/Karachi');
                               <option value="Severe">Severe&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+++ </option>
                           </select>
                         </td>
-                        <td><input type="number" name="milk_ph_r1" class="form-control"></td>
+                        <td><input type="number" name="milk_ph_r1" value="0.00" class="form-control"></td>
                         <td><input type="number" name="s_c_c_r1" class="form-control"></td>
                         <td>
                           <select name="gross_appearance_r1" class="form-control">
@@ -425,7 +461,7 @@ date_default_timezone_set('Asia/Karachi');
                               <option value="Severe">Severe&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+++ </option>
                           </select>
                         </td>
-                        <td><input type="number" name="milk_ph_r2" class="form-control"></td>
+                        <td><input type="number" name="milk_ph_r2" value="0.00" class="form-control"></td>
                         <td><input type="number" name="s_c_c_r2" class="form-control"></td>
                         <td>
                           <select name="gross_appearance_r2" class="form-control">
@@ -453,7 +489,7 @@ date_default_timezone_set('Asia/Karachi');
                               <option value="Severe">Severe&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+++ </option>
                           </select>
                         </td>
-                        <td><input type="number" name="milk_ph_l1" class="form-control"></td>
+                        <td><input type="number" name="milk_ph_l1" value="0.00" class="form-control"></td>
                         <td><input type="number" name="s_c_c_l1" class="form-control"></td>
                         <td>
                           <select name="gross_appearance_l1" class="form-control">
@@ -1834,6 +1870,8 @@ date_default_timezone_set('Asia/Karachi');
 // Disease Found status hide/show
  $('.diseaseName').hide();
 
+$('.negStatus').css({'display':'none'});
+$('.clinical_or_sub').css({'display':'none'});
 
 $('#r1Row').css({'display':'none'});
 $('#r2Row').css({'display':'none'});
@@ -1929,6 +1967,24 @@ $('.l2Check').click(function(){
         }
         
     });
+
+        
+
+$('.NegResult_status').change(function(){
+ var vl =  $(this).val();
+  if(vl=='Negative')
+  {
+      $('.negStatus').css({'display':''});
+      $('.clinical_or_sub').css({'display':'none'});
+  }else if(vl=='Positive')
+  {
+      $('.negStatus').css({'display':'none'});
+      $('.clinical_or_sub').css({'display':''});
+  }else{
+      $('.negStatus').css({'display':'none'});
+      $('.clinical_or_sub').css({'display':'none'});
+  }
+});
 
   });
 </script>

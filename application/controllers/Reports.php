@@ -537,180 +537,11 @@ class Reports extends CI_Controller {
 	}
 	
 
-	public function samplereports(){
-
-		if ($this->input->post('submit')) {
-
-			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
-			$var_arr = array();
-			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
-				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["districtreports"] = $result;
-			///////////
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/samplereports', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["districtreports"] = "null";
-			// $data["districtreports"] = "null";
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/samplereports', $data);
-			$this->load->view('template_parts/footer');
-		}
-	}
-
-	public function searchSampleReports() {
-
-		if ($this->input->post('submit')) {
-
-			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
-			$var_arr = array();
-			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
-				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["districtreports"] = $result;
-			///////////
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/samplereports', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["districtreports"] = $this->Reports_model->districtlabsreports();
-			// $data["districtreports"] = "null";
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/samplereports', $data);
-			$this->load->view('template_parts/footer');
-		}
-
-	}
-       public function testtypereports() {
-
-		if ($this->input->post('submit')) {
-
-			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
-			$var_arr = array();
-			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
-				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["districtreports"] = $result;
-			///////////
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/testtypewisereports', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["districtreports"] = "null";
-			// $data["districtreports"] = "null";
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/testtypewisereports', $data);
-			$this->load->view('template_parts/footer');
-		}
-
-	}
 
 
-	public function Animalreports() {
+	
+      
 
-		if ($this->input->post('submit')) {
-
-			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
-			$var_arr = array();
-			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
-				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["districtreports"] = $result;
-			///////////
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/aminalreports', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["districtreports"] = "null";
-			// $data["districtreports"] = "null";
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/aminalreports', $data);
-			$this->load->view('template_parts/footer');
-		}
-
-	}
 	public function pending_test_ajax() {
 		$center_station_id = $this->input->post('center_id');
 		$labs_id = $this->input->post('labs_id');
@@ -765,122 +596,21 @@ class Reports extends CI_Controller {
 
 	}
 
-	public function lab_wise_view() {
-
-		if ($this->input->post('submit')) {
-
-			$getTest = $this->Reports_model->getTest();
-			$var_arr = array();
-			foreach ($getTest as $key => $getTestInfo) {
-				$var_arr[] = $this->Reports_model->lab_wise_view_report($getTestInfo['test_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["lab_wise_labreporting"] = $result;
-
-			$role_id = $this->session->userdata('user')['role'];
-			$lab_id = $this->session->userdata('user')['lab_id'];
-			$permissions = $this->User_m->getRecordWhere('role_permissions', ['role_id' => $role_id]);
-			$data['tests'] = '';
-			$data['labs'] = '';
-			if ($permissions[4]->module_id == 5 && $permissions[4]->show_all == 1) {
-				$data['tests'] = $this->API_m->getTestTypes();
-				$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0]);
-			} else if ($permissions[4]->module_id == 5 && $permissions[4]->show_lab_by == 1) {
-				$data['tests'] = $this->API_m->getTestTypes_byLab($lab_id);
-				$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0, 'lab_id' => $lab_id]);
-			} else if ($permissions[4]->module_id == 5 && $permissions[4]->show_none == 1) {
-				$data['tests'] = '';
-				$data['labs'] = '';
-
-			}
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['testItems'] = $this->API_m->getRecordWhere('testhelp', ['is_trash' => 0]);
-			$data['samples'] = $this->API_m->getRecordWhere('samples', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/lab_wise_labreporting', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["lab_wise_labreporting"] = "null";
-
-			$role_id = $this->session->userdata('user')['role'];
-			$lab_id = $this->session->userdata('user')['lab_id'];
-			$permissions = $this->User_m->getRecordWhere('role_permissions', ['role_id' => $role_id]);
-			$data['tests'] = '';
-			$data['labs'] = '';
-			if ($permissions[4]->module_id == 5 && $permissions[4]->show_all == 1) {
-				$data['tests'] = $this->API_m->getTestTypes();
-				$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0]);
-			} else if ($permissions[4]->module_id == 5 && $permissions[4]->show_lab_by == 1) {
-				$data['tests'] = $this->API_m->getTestTypes_byLab($lab_id);
-				$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0, 'lab_id' => $lab_id]);
-			} else if ($permissions[4]->module_id == 5 && $permissions[4]->show_none == 1) {
-				$data['tests'] = '';
-				$data['labs'] = '';
-
-			}
-			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
-			$data['testItems'] = $this->API_m->getRecordWhere('testhelp', ['is_trash' => 0]);
-			$data['samples'] = $this->API_m->getRecordWhere('samples', ['is_trash' => 0]);
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/lab_wise_labreporting', $data);
-			$this->load->view('template_parts/footer');
-		}
+	public function RepDistrict_tehsils() {
+		# code...
+		$district_id = $this->input->post("district_id");
+		$data = $this->db->select("*")
+			->from("tehsil")
+			->where("district_id", $district_id)
+			->where("is_trash",0)
+			->get()->result();
+		echo json_encode($data);
 
 	}
 
-	public function districtlabsreports() {
-		if ($this->input->post('submit')) {
+	
 
-			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
-			$var_arr = array();
-			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
-				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
-			}
-			$result = [];
-
-			foreach ($var_arr as $value) {
-				$result = array_merge($result, $value);
-			}
-			$data["districtreports"] = $result;
-			///////////
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/districtwiselab', $data);
-			$this->load->view('template_parts/footer');
-
-		} else {
-			$data["districtreports"] = "null";
-			// $data["districtreports"] = "null";
-			$data['logUser'] = $this->User_m->getLogUserInfo();
-			$data['logLab'] = $this->User_m->getLogUserLabInfo();
-			$data['center'] = $this->db->get("center_station")->result_array();
-			$data['tests'] = $this->API_m->getAllTestTypes();
-			$this->load->view('template_parts/header',$data);
-			$this->load->view('template_parts/menu');
-			$this->load->view('template_parts/asidemenu');
-			$this->load->view('pages/districtwiselab', $data);
-			$this->load->view('template_parts/footer');
-		}
-	}
-
+	
 	public function districtlabsreports_old() {
 		$data["districtreports"] = "null";
 		if ($this->input->post('first_date') == "null") {
@@ -1067,6 +797,782 @@ class Reports extends CI_Controller {
 			$this->load->view('template_parts/footer');
 
 	}
+
+
+
+ public function testtypereports() {
+ 		$condition = '';
+		if ($this->input->post('submit')) {
+				
+				$first_date        = $this->input->post('first_date');
+				$second_date       = $this->input->post('second_date');
+				$client_type       = $this->input->post('client_type');
+				$district_id       = $this->input->post('district_id');
+				$directorate_id    = $this->input->post('directorate_id');
+				$center_station_id = $this->input->post('center_station_id');
+				$section_id        = $this->input->post('section_id');
+				$lab_id            = $this->input->post('lab_id');
+				$testHelp_id       = $this->input->post('testHelp_id');
+
+				
+			if ($first_date != '' && $second_date != '') {
+
+				$condition = " testdetails.posted_date BETWEEN '" . $first_date . "' and '" . $second_date . "' ";
+			}
+			 if(!empty($client_type))
+			 {
+			 	if($client_type!='all')
+			 	{
+			 		$condition.= ' and client_info.type = "'.$client_type.'"';
+			 	}else
+			 	{ 
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($district_id))
+			 {
+			 	if($district_id!='all')
+			 	{
+			 		$condition.= ' and  client_info.district_id ='.$district_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($directorate_id))
+			 {
+			 	if($directorate_id!='all')
+			 	{
+			 		$condition.= ' and   tests.directorate_id ='.$directorate_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($center_station_id))
+			 {
+			 	if($center_station_id!='all')
+			 	{
+			 		$condition.= ' and tests.center_station_id ='.$center_station_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($section_id))
+			 {
+			 	if($section_id!='all')
+			 	{
+			 		$condition.= ' and  tests.section_id ='.$section_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($lab_id))
+			 {
+			 	if($lab_id!='all')
+			 	{
+			 		$condition.= ' and  tests.lab_id ='.$lab_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($testHelp_id))
+			 {
+			 	if($testHelp_id!='all')
+			 	{
+			 		$condition.= ' and tests.testHelp_id ='.$testHelp_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+
+			
+			// $data["reports"] = $this->Reports_model->get_FilterDetails($condition);
+	       	// echo "<pre>";
+	       	// print_r($data["reports"]);
+	       	// exit();
+			$data["reports"]         = $this->Reports_model->get_FilterDetails($condition);
+			$data['directorates']    = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser']         = $this->User_m->getLogUserInfo();
+			$data['logLab']          = $this->User_m->getLogUserLabInfo();
+			// $data['center']          = $this->db->get("center_station")->result_array();
+			// $data['tests']           = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/testtypewisereports', $data);
+			$this->load->view('template_parts/footer');
+
+	}else
+	{
+		$data["reports"] = '';
+		// $data["districtreports"] = "null";
+		$data['directorates']    = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+		$data['logUser']         = $this->User_m->getLogUserInfo();
+		$data['logLab']          = $this->User_m->getLogUserLabInfo();
+		// $data['center']          = $this->db->get("center_station")->result_array();
+		// $data['tests']           = $this->API_m->getAllTestTypes();
+		$this->load->view('template_parts/header',$data);
+		$this->load->view('template_parts/menu');
+		$this->load->view('template_parts/asidemenu');
+		$this->load->view('pages/testtypewisereports', $data);
+		$this->load->view('template_parts/footer');
+	}
+}
+
+	public function samplereports(){
+
+			$condition = '';
+		if ($this->input->post('submit')) {
+				
+				$first_date        = $this->input->post('first_date');
+				$second_date       = $this->input->post('second_date');
+				$client_type       = $this->input->post('client_type');
+				$district_id       = $this->input->post('district_id');
+				$directorate_id    = $this->input->post('directorate_id');
+				$center_station_id = $this->input->post('center_station_id');
+				$section_id        = $this->input->post('section_id');
+				$lab_id            = $this->input->post('lab_id');
+				$sample_id         = $this->input->post('sample_id');
+
+				
+			if ($first_date != '' && $second_date != '') {
+
+				$condition = " testdetails.created_date BETWEEN '" .$first_date. "' and '" .$second_date. "' ";
+			}
+			 if(!empty($client_type))
+			 {
+			 	if($client_type!='all')
+			 	{
+			 		$condition.= ' and client_info.type = "'.$client_type.'"';
+			 	}else
+			 	{ 
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($district_id))
+			 {
+			 	if($district_id!='all')
+			 	{
+			 		$condition.= ' and  client_info.district_id ='.$district_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($directorate_id))
+			 {
+			 	if($directorate_id!='all')
+			 	{
+			 		$condition.= ' and   tests.directorate_id ='.$directorate_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($center_station_id))
+			 {
+			 	if($center_station_id!='all')
+			 	{
+			 		$condition.= ' and tests.center_station_id ='.$center_station_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($section_id))
+			 {
+			 	if($section_id!='all')
+			 	{
+			 		$condition.= ' and  tests.section_id ='.$section_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($lab_id))
+			 {
+			 	if($lab_id!='all')
+			 	{
+			 		$condition.= ' and  tests.lab_id ='.$lab_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($sample_id))
+			 {
+			 	if($sample_id!='all')
+			 	{
+			 		$condition.= ' and testdetails.sample_id ='.$sample_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+
+			// $getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
+			// $var_arr = array();
+			// foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
+			// 	$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
+			// }
+			// $result = [];
+
+			// foreach ($var_arr as $value) {
+			// 	$result = array_merge($result, $value);
+			// }
+			// $data["districtreports"] = $result;
+			$data["reports"]         = $this->Reports_model->get_FilterDetails($condition);
+			$data['directorates']    = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser']         = $this->User_m->getLogUserInfo();
+			$data['logLab']          = $this->User_m->getLogUserLabInfo();
+			// $data['center']          = $this->db->get("center_station")->result_array();
+			// $data['tests']           = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/samplereports', $data);
+			$this->load->view('template_parts/footer');
+
+		} else {
+			$data["reports"]      = '';
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser']      = $this->User_m->getLogUserInfo();
+			$data['logLab']       = $this->User_m->getLogUserLabInfo();
+			// $data['center']       = $this->db->get("center_station")->result_array();
+			// $data['tests']        = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/samplereports', $data);
+			$this->load->view('template_parts/footer');
+		}
+	}
+
+
+	public function Animalreports() {
+
+			$condition = '';
+		if ($this->input->post('submit')) {
+				
+				$first_date        = $this->input->post('first_date');
+				$second_date       = $this->input->post('second_date');
+				$client_type       = $this->input->post('client_type');
+				$district_id       = $this->input->post('district_id');
+				$directorate_id    = $this->input->post('directorate_id');
+				$center_station_id = $this->input->post('center_station_id');
+				$section_id        = $this->input->post('section_id');
+				$lab_id            = $this->input->post('lab_id');
+				$cattle_id         = $this->input->post('cattle_id');
+
+				
+			if ($first_date != '' && $second_date != '') {
+
+				$condition = " testdetails.posted_date BETWEEN '" . $first_date . "' and '" . $second_date . "' ";
+			}
+			 if(!empty($client_type))
+			 {
+			 	if($client_type!='all')
+			 	{
+			 		$condition.= ' and client_info.type = "'.$client_type.'"';
+			 	}else
+			 	{ 
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($district_id))
+			 {
+			 	if($district_id!='all')
+			 	{
+			 		$condition.= ' and  client_info.district_id ='.$district_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($directorate_id))
+			 {
+			 	if($directorate_id!='all')
+			 	{
+			 		$condition.= ' and   tests.directorate_id ='.$directorate_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($center_station_id))
+			 {
+			 	if($center_station_id!='all')
+			 	{
+			 		$condition.= ' and tests.center_station_id ='.$center_station_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($section_id))
+			 {
+			 	if($section_id!='all')
+			 	{
+			 		$condition.= ' and  tests.section_id ='.$section_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($lab_id))
+			 {
+			 	if($lab_id!='all')
+			 	{
+			 		$condition.= ' and  tests.lab_id ='.$lab_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($cattle_id))
+			 {
+			 	if($cattle_id!='all')
+			 	{
+			 		$condition.= ' and testdetails.cattle_name ='.$cattle_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+
+
+			// $getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
+			// $var_arr = array();
+			// foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
+			// 	$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
+			// }
+			// $result = [];
+
+			// foreach ($var_arr as $value) {
+			// 	$result = array_merge($result, $value);
+			// }
+			// $data["districtreports"] = $result;
+			///////////
+			 $data["reports"]     = $this->Reports_model->get_FilterDetails($condition);
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser']      = $this->User_m->getLogUserInfo();
+			$data['logLab']       = $this->User_m->getLogUserLabInfo();
+			// $data['center'] = $this->db->get("center_station")->result_array();
+			// $data['tests'] = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/aminalreports', $data);
+			$this->load->view('template_parts/footer');
+
+		} else {
+			$data["reports"]      = '';
+			// $data["districtreports"] = "null";
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser']      = $this->User_m->getLogUserInfo();
+			$data['logLab']       = $this->User_m->getLogUserLabInfo();
+			// $data['center']       = $this->db->get("center_station")->result_array();
+			// $data['tests']        = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/aminalreports', $data);
+			$this->load->view('template_parts/footer');
+		}
+
+	}
+public function lab_wise_view() {
+
+	$condition = '';
+		if ($this->input->post('submit')) {
+				
+				$first_date        = $this->input->post('first_date');
+				$second_date       = $this->input->post('second_date');
+				$client_type       = $this->input->post('client_type');
+				$district_id       = $this->input->post('district_id');
+				$directorate_id    = $this->input->post('directorate_id');
+				$center_station_id = $this->input->post('center_station_id');
+				$section_id        = $this->input->post('section_id');
+				$lab_id            = $this->input->post('lab_id');
+				$status            = $this->input->post('status');
+
+				
+			if ($first_date != '' && $second_date != '') {
+
+				$condition = " testdetails.created_date BETWEEN '" . $first_date . "' and '" . $second_date . "' ";
+			}
+			 if(!empty($client_type))
+			 {
+			 	if($client_type!='all')
+			 	{
+			 		$condition.= ' and client_info.type = "'.$client_type.'"';
+			 	}else
+			 	{ 
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($district_id))
+			 {
+			 	if($district_id!='all')
+			 	{
+			 		$condition.= ' and  client_info.district_id ='.$district_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($directorate_id))
+			 {
+			 	if($directorate_id!='all')
+			 	{
+			 		$condition.= ' and   tests.directorate_id ='.$directorate_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($center_station_id))
+			 {
+			 	if($center_station_id!='all')
+			 	{
+			 		$condition.= ' and tests.center_station_id ='.$center_station_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($section_id))
+			 {
+			 	if($section_id!='all')
+			 	{
+			 		$condition.= ' and  tests.section_id ='.$section_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($lab_id))
+			 {
+			 	if($lab_id!='all')
+			 	{
+			 		$condition.= ' and  tests.lab_id ='.$lab_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 
+		 	if($status!='all')
+		 	{
+		 		if($status==0)
+		 		{
+		 			$condition.= ' and testdetails.post_status ='.$status;
+		 		}else if($status==1)
+		 		{
+		 			$condition.= ' and testdetails.post_status ='.$status;
+		 		}else if($status==2)
+		 		{
+		 			$condition.= ' and testdetails.is_cancel =1';
+		 		}
+		 	}else
+		 	{
+		 		$condition.= ' ';
+		 	}
+		
+
+
+			// $getTest = $this->Reports_model->getTest();
+			// $var_arr = array();
+			// foreach ($getTest as $key => $getTestInfo) {
+			// 	$var_arr[] = $this->Reports_model->lab_wise_view_report($getTestInfo['test_id']);
+			// }
+			// $result = [];
+
+			// foreach ($var_arr as $value) {
+			// 	$result = array_merge($result, $value);
+			// }
+			// $data["lab_wise_labreporting"] = $result;
+
+			// $role_id = $this->session->userdata('user')['role'];
+			// $lab_id = $this->session->userdata('user')['lab_id'];
+			// $permissions = $this->User_m->getRecordWhere('role_permissions', ['role_id' => $role_id]);
+			// $data['tests'] = '';
+			// $data['labs'] = '';
+			// if ($permissions[4]->module_id == 5 && $permissions[4]->show_all == 1) {
+			// 	$data['tests'] = $this->API_m->getTestTypes();
+			// 	$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0]);
+			// } else if ($permissions[4]->module_id == 5 && $permissions[4]->show_lab_by == 1) {
+			// 	$data['tests'] = $this->API_m->getTestTypes_byLab($lab_id);
+			// 	$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0, 'lab_id' => $lab_id]);
+			// } else if ($permissions[4]->module_id == 5 && $permissions[4]->show_none == 1) {
+			// 	$data['tests'] = '';
+			// 	$data['labs'] = '';
+
+			// }
+			$data["reports"]      = $this->Reports_model->get_FilterDetails($condition);
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			// $data['testItems']    = $this->API_m->getRecordWhere('testhelp', ['is_trash' => 0]);
+			// $data['samples']      = $this->API_m->getRecordWhere('samples', ['is_trash' => 0]);
+			$data['logUser']      = $this->User_m->getLogUserInfo();
+			$data['logLab']       = $this->User_m->getLogUserLabInfo();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/lab_wise_labreporting', $data);
+			$this->load->view('template_parts/footer');
+
+		} else {
+			$data["reports"] = "";
+
+			// $role_id = $this->session->userdata('user')['role'];
+			// $lab_id = $this->session->userdata('user')['lab_id'];
+			// $permissions = $this->User_m->getRecordWhere('role_permissions', ['role_id' => $role_id]);
+			// $data['tests'] = '';
+			// $data['labs'] = '';
+			// if ($permissions[4]->module_id == 5 && $permissions[4]->show_all == 1) {
+			// 	$data['tests'] = $this->API_m->getTestTypes();
+			// 	$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0]);
+			// } else if ($permissions[4]->module_id == 5 && $permissions[4]->show_lab_by == 1) {
+			// 	$data['tests'] = $this->API_m->getTestTypes_byLab($lab_id);
+			// 	$data['labs'] = $this->API_m->getRecordWhere('labs', ['is_trash' => 0, 'lab_id' => $lab_id]);
+			// } else if ($permissions[4]->module_id == 5 && $permissions[4]->show_none == 1) {
+			// 	$data['tests'] = '';
+			// 	$data['labs'] = '';
+
+			// }
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			// $data['testItems']    = $this->API_m->getRecordWhere('testhelp', ['is_trash' => 0]);
+			// $data['samples']      = $this->API_m->getRecordWhere('samples', ['is_trash' => 0]);
+			$data['logUser']      = $this->User_m->getLogUserInfo();
+			$data['logLab']       = $this->User_m->getLogUserLabInfo();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/lab_wise_labreporting', $data);
+			$this->load->view('template_parts/footer');
+		}
+
+	}
+	public function districtlabsreports() {
+		$condition = '';
+		if ($this->input->post('submit')) {
+				
+				$first_date        = $this->input->post('first_date');
+				$second_date       = $this->input->post('second_date');
+				$district_id       = $this->input->post('district_id');
+				$tehsil_id         = $this->input->post('tehsil_id');
+				$test_id           = $this->input->post('test_id');
+				$sample_id         = $this->input->post('sample_id');
+
+				
+			if ($first_date != '' && $second_date != '') {
+
+				$condition = " testdetails.created_date BETWEEN '" . $first_date . "' and '" . $second_date . "' ";
+			}
+			 
+			 if(!empty($district_id))
+			 {
+			 	if($district_id!='all')
+			 	{
+			 		$condition.= ' and  client_info.district_id ='.$district_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($tehsil_id))
+			 {
+			 	if($tehsil_id!='all')
+			 	{
+			 		$condition.= ' and   client_info.tehsil_id ='.$tehsil_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($test_id))
+			 {
+			 	if($test_id!='all')
+			 	{
+			 		$condition.= ' and testdetails.test_id ='.$test_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 if(!empty($sample_id))
+			 {
+			 	if($sample_id!='all')
+			 	{
+			 		$condition.= ' and  testdetails.sample_id ='.$sample_id;
+			 	}else
+			 	{
+			 		$condition.= ' ';
+			 	}
+			 }
+			 
+			// $getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
+			// $var_arr = array();
+			// foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
+			// 	$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
+			// }
+			// $result = [];
+
+			// foreach ($var_arr as $value) {
+			// 	$result = array_merge($result, $value);
+			// }
+			// $data["districtreports"] = $result;
+			///////////
+			$data["reports"]  = $this->Reports_model->get_FilterDetails($condition);
+			$data['logUser']  = $this->User_m->getLogUserInfo();
+			$data['logLab']   = $this->User_m->getLogUserLabInfo();
+			// $data['center']   = $this->db->get("center_station")->result_array();
+			$data['tests']    = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/districtwiselab', $data);
+			$this->load->view('template_parts/footer');
+
+		} else {
+			$data["reports"]  = "";
+			// $data["districtreports"] = "null";
+			$data['logUser']  = $this->User_m->getLogUserInfo();
+			$data['logLab']   = $this->User_m->getLogUserLabInfo();
+			// $data['center']   = $this->db->get("center_station")->result_array();
+			$data['tests']    = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/districtwiselab', $data);
+			$this->load->view('template_parts/footer');
+		}
+	}
+
+	public function searchSampleReports() {
+
+		if ($this->input->post('submit')) {
+
+			$getDistrictTehsilWise = $this->Reports_model->getDistrictTehsilWise();
+			$var_arr = array();
+			foreach ($getDistrictTehsilWise as $key => $getDistrictTehsilWiseInfo) {
+				$var_arr[] = $this->Reports_model->districtlabsreports($getDistrictTehsilWiseInfo['client_id']);
+			}
+			$result = [];
+
+			foreach ($var_arr as $value) {
+				$result = array_merge($result, $value);
+			}
+			$data["districtreports"] = $result;
+			///////////
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser'] = $this->User_m->getLogUserInfo();
+			$data['logLab'] = $this->User_m->getLogUserLabInfo();
+			$data['center'] = $this->db->get("center_station")->result_array();
+			$data['tests'] = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/samplereports', $data);
+			$this->load->view('template_parts/footer');
+
+		} else {
+			$data["districtreports"] = $this->Reports_model->districtlabsreports();
+			// $data["districtreports"] = "null";
+			$data['directorates'] = $this->API_m->getRecordWhere('directorates', ['is_trash' => 0]);
+			$data['logUser'] = $this->User_m->getLogUserInfo();
+			$data['logLab'] = $this->User_m->getLogUserLabInfo();
+			$data['center'] = $this->db->get("center_station")->result_array();
+			$data['tests'] = $this->API_m->getAllTestTypes();
+			$this->load->view('template_parts/header',$data);
+			$this->load->view('template_parts/menu');
+			$this->load->view('template_parts/asidemenu');
+			$this->load->view('pages/samplereports', $data);
+			$this->load->view('template_parts/footer');
+		}
+
+	}
+
+
+// ************************ Start methods for Reports through ajax operation 
+
+    public function getStations()
+    {
+         $stations ='';
+         $id       = $this->input->post('directorate_id');
+        if($id=='all')
+        {
+          $stations = $this->API_m->getRecordWhere('center_station',['is_trash' => 0]);
+        }else
+        {
+          $stations = $this->API_m->getRecordWhere('center_station',['directorate_id' => $id,'is_trash' => 0]);
+        }
+        echo json_encode($stations);
+    }
+    public function GetSections()
+    {
+    	$section  = '';
+        $id       = $this->input->post('center_station_id');
+    	if($id=='all')
+		{
+          $section  = $this->API_m->GetRepSectionsItems();
+		}else
+		{
+          $section  = $this->API_m->GetSectionsItems($id);
+		}
+        // echo "<pre>";
+        echo json_encode($section);
+    }
+    public function GetLabs()
+    {
+    	$labs     = '';
+        $id       = $this->input->post('section_id');
+        if($id=='all')
+		{
+           $labs  = $this->API_m->getRecordWhere('labs',['is_trash' => 0]);
+		}else
+		{
+           $labs  = $this->API_m->getRecordWhere('labs',['section_id' => $id,'is_trash' => 0]);
+		}
+        echo json_encode($labs);
+    }
+    public function getTestNames()
+    {
+    	$testNames     = '';
+        $id            = $this->input->post('lab_id');
+        if($id=='all')
+		{
+           $testNames  = $this->API_m->getRepTestNames();
+		}else
+		{
+           $testNames  = $this->API_m->getTestNames($id);
+		}
+        echo json_encode($testNames);
+    }
+    public function getRepTehsil()
+    {
+    	$tehils     = '';
+        $id         = $this->input->post('district_id');
+        if($id=='all')
+		{
+           $tehils  = $this->API_m->getRecordWhere('tehsil',['is_trash' => 0]);
+		}else
+		{
+           $tehils  = $this->API_m->getRecordWhere('tehsil',['district_id' => $id, 'is_trash' => 0]);
+		}
+        echo json_encode($tehils);
+    }
+
+
+
+// ********************* ./end methods for Reports through ajax operation 
+
+
 }
 
 

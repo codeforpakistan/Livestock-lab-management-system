@@ -824,6 +824,35 @@ $PCT_mi      = '';
               }else if ($rec['testDetails']->testHelp_id==3) {
             ?>
             <?php
+                if($rec['testType']->result_status=='Negative')
+                {
+            ?>
+               <table class="table table-bordered">
+                  <thead>
+                    <th>Test Conducted</th>
+                    <th>Specimen</th>
+                    <th>Specimen Detail</th>
+                    <th>PH</th>
+                    <th>S.S.C</th>
+                    <th>GROSS APPEARANCE</th>
+                    <th>Result</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><?=  $rec['testDetails']->testHelp_name;          ?></td>
+                      <td><?=  $rec['testDetails']->sample_name;            ?></td>
+                      <td><?=  $rec['testDetails']->sample_desc;            ?></td>
+                      <td><?=  $rec['testType']->neg_ph;                    ?></td>
+                      <td><?=  $rec['testType']->neg_ssc;                   ?></td>
+                      <td><?=  $rec['testType']->neg_gross_appearance;      ?></td>
+                      <td><?=  $rec['testType']->result_status;             ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+            <?php
+                }else{
+            ?>
+            <?php
               if($rec['testType']->clinical_or_sub=='Clinical')
               {
             ?>
@@ -838,12 +867,12 @@ $PCT_mi      = '';
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?=  $rec['testDetails']->testHelp_name; ?></td>
-                    <td><?=  $rec['testDetails']->sample_name;   ?></td>
-                    <td><?=  $rec['testDetails']->sample_desc;   ?></td>
-                    <td><?= $rec['testType']->mastitis_severity; ?></td>
-                    <td><?= $rec['testType']->clinical_or_sub;   ?></td>
-                    <td><?= $rec['testType']->clinical_gross_appearance; ?></td>
+                    <td><?=  $rec['testDetails']->testHelp_name;          ?></td>
+                    <td><?=  $rec['testDetails']->sample_name;            ?></td>
+                    <td><?=  $rec['testDetails']->sample_desc;            ?></td>
+                    <td><?=  $rec['testType']->result_status;             ?></td>
+                    <td><?=  $rec['testType']->clinical_or_sub;           ?></td>
+                    <td><?=  $rec['testType']->clinical_gross_appearance; ?></td>
                   </tr>
                 </tbody>
               </table>
@@ -957,6 +986,7 @@ $PCT_mi      = '';
         </table>
             <?php
               }
+            }
             ?>
               <!-- <p><strong>Refer to Bacteriology Section for</strong>: <?// $rec['testType']->refer_to_bacteriology_sec_for; ?></p> -->
             <?php
@@ -979,6 +1009,11 @@ $PCT_mi      = '';
             </tbody>
            </table>
 <br>
+<div class="row">
+     <div class="col-4"></div>
+     <div class="col-4"> <strong style="font-size: 22px;">SENSITIVITY REPORT</strong></div>
+     <div class="col-4"></div>
+   </div>
 <table class="table table-hover table-condenced">
   <thead>
     <tr>

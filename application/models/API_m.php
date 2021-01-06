@@ -224,6 +224,14 @@ public function getAllTestTypes_byLab($lab_id)
                          ->where('s.center_station_id',$id)
                          ->get()->result();
      }
+    public function GetRepSectionsItems()
+    {
+        return $this->db->select('*')
+                         ->from('sections as s')
+                         ->join('sectionhelp as sh','sh.sectionHelp_id=s.sectionHelp_id','left')
+                         ->where('s.is_trash',0)
+                         ->get()->result();
+     }
 
      public function getTestTypes_byLab($lab_id)
      {
@@ -2655,5 +2663,12 @@ public function current_year_ByLab($lab_id)
                        
     }
 
+    public function getRepTestNames() {
+        return $this->db->select("*")
+                                ->from("tests")
+                                ->join("testhelp",'testhelp.testHelp_id=tests.testHelp_id')
+                                ->get()->result();
+                       
+    }
 
 }
